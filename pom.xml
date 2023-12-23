@@ -17,6 +17,7 @@
 	<properties>
 		<cat4j.version>0.0.1</cat4j.version>
 		<java.version>17</java.version>
+		<redisson.starter.version>3.25.0</redisson.starter.version>
 	</properties>
 	<modules>
 		<module>cat4j-common</module>
