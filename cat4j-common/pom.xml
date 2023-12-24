@@ -14,6 +14,7 @@
 	<description>cat4j-common</description>
     <modules>
         <module>cat4j-redis-starter</module>
+        <module>cat4j-core</module>
     </modules>
     <packaging>pom</packaging>
 	<properties>

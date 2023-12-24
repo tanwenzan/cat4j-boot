@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.0</version>
+		<version>3.0.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cn.zeroable</groupId>
@@ -17,25 +17,75 @@
 	<properties>
 		<cat4j.version>0.0.1</cat4j.version>
 		<java.version>17</java.version>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<redisson.starter.version>3.25.0</redisson.starter.version>
+		<java.version>17</java.version>
+		<postgresql.version>42.2.27</postgresql.version>
+		<mybatis.plus.version>3.5.3.1</mybatis.plus.version>
+		<mybatis.plus.dynamic.version>3.6.1</mybatis.plus.dynamic.version>
+		<hutool.version>5.8.16</hutool.version>
+		<apache.poi.version>4.1.2</apache.poi.version>
+		<druid.version>1.1.17</druid.version>
+		<spring.beans.version>5.1.6.RELEASE</spring.beans.version>
+		<mysql.version>8.0.12</mysql.version>
 	</properties>
 	<modules>
 		<module>cat4j-common</module>
+		<module>cat4j-base</module>
+		<module>cat4j-common/cat4j-db-starter</module>
 	</modules>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus-boot-starter</artifactId>
+				<version>${mybatis.plus.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+				<version>${mybatis.plus.dynamic.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.zeroable</groupId>
+				<artifactId>cat4j-core</artifactId>
+				<version>${cat4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.zeroable</groupId>
+				<artifactId>cat4j-redis-starter</artifactId>
+				<version>${cat4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>cn.zeroable</groupId>
+				<artifactId>cat4j-db-starter</artifactId>
+				<version>${cat4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson-spring-boot-starter</artifactId>
+				<version>${redisson.starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -44,11 +94,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

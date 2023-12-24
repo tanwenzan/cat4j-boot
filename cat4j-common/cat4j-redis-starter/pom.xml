@@ -11,16 +11,14 @@
 
     <artifactId>cat4j-redis-starter</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.redisson</groupId>
             <artifactId>redisson-spring-boot-starter</artifactId>
-            <version>${redisson.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.zeroable</groupId>
+            <artifactId>cat4j-core</artifactId>
         </dependency>
     </dependencies>
 </project>
