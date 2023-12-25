@@ -37,4 +37,12 @@ public class SpringbootJasyptApplicationTests {
         System.out.println("database name: " + name);
         System.out.println("database password: " + password);
     }
+
+    @Test
+    public void redisEncrypt() {
+        String host = encryptor.encrypt("127.0.0.1");
+        String port = encryptor.encrypt("6379");
+        System.out.println("redis host: " + host);
+        System.out.println("redis port: " + port);
+    }
 }
