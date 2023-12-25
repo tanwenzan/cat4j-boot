@@ -1,10 +1,17 @@
 package cn.zeroable.cat4j.entity;
 
 import cn.zeroable.cat4j.core.Long2StringSerializer;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * 数据库基础实体类.
@@ -16,14 +23,30 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class BasePO {
 
     //使用自己实现的类型转换
-    @TableId
+    @TableId("id")
     @JsonSerialize(using = Long2StringSerializer.class)
     private Long id;
 
     @Version
-    private Integer version;
+    @TableField("re_version")
+    private Integer reVersion;
+
+    @TableField("create_by")
+    private Long createBy;
+
+    @TableField("create_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
+
+    @TableField("update_by")
+    private Long updateBy;
+
+    @TableField("update_time")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updateTime;
 
     @TableLogic
+    @TableField("hide")
     private Boolean hide;
 
     public Long getId() {
@@ -34,12 +57,13 @@ public class BasePO {
         this.id = id;
     }
 
-    public Integer getVersion() {
-        return version;
+    public Integer getReVersion() {
+        return reVersion;
     }
 
-    public void setVersion(Integer version) {
-        this.version = version;
+    public BasePO setReVersion(Integer reVersion) {
+        this.reVersion = reVersion;
+        return this;
     }
 
     public Boolean getHide() {
@@ -48,5 +72,41 @@ public class BasePO {
 
     public void setHide(Boolean hide) {
         this.hide = hide;
+    }
+
+    public Long getCreateBy() {
+        return createBy;
+    }
+
+    public BasePO setCreateBy(Long createBy) {
+        this.createBy = createBy;
+        return this;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public BasePO setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+        return this;
+    }
+
+    public Long getUpdateBy() {
+        return updateBy;
+    }
+
+    public BasePO setUpdateBy(Long updateBy) {
+        this.updateBy = updateBy;
+        return this;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public BasePO setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+        return this;
     }
 }
