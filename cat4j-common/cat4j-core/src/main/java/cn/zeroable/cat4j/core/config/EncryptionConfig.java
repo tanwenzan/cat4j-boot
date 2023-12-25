@@ -3,19 +3,15 @@ package cn.zeroable.cat4j.core.config;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.SimpleStringPBEConfig;
-import org.jasypt.util.text.AES256TextEncryptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * 简要说明.
- * <br/> 详细说明.
+ * 数据脱敏处理.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/12/25 11:30
- * @see
  * @since 0.0.1
  */
 @Configuration
