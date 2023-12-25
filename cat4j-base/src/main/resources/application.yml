@@ -66,15 +66,15 @@ spring:
       datasource:
         base:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/cat4j_base?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4
-          username: root
-          password: zeroable2020
+          url: ENC(N56kOIPLh4b83vHP3OaNNJ0MOza88UTaHWgjgo/JYVlHQhpUKypQZmA/axBFkgr7K4zKjhaCpZFiLlWnoQCYLFuFh9uCO/WZZTlHYn8boIOBPougbwDe9rk6gsgmXUmHWkr8dWL73yDAEXX3k/HPp46T2007pZC3EbUJHSiehKXxOAfmEwuoFG4GaFZd6ySKiz3tX9ua/RzH4e6SQ5SSWg==)
+          username: ENC(J132ZzOCyDODOtumOyJIHBScakzXwhV8ENt74gvYu1rnmR6SpKCRvps0czEwPkWR)
+          password: ENC(++FZHFS1Ad6tJ/VfJ6srAfq8jj7biiuoOGW6M/fJKFH8Fupaj0ZWI7PAln/jKuCb)
           type: com.alibaba.druid.pool.DruidDataSource
         bi:
           driver-class-name: com.mysql.cj.jdbc.Driver
-          url: jdbc:mysql://127.0.0.1:3306/cat4j_bi?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4
-          username: root
-          password: zeroable2020
+          url: ENC(mIhL1RL0CvdSqu0QfAQKH3MeHCBej8XbcWYvPpNuWh5yLU+5z2I2zXf7wezfp7MDc56uJAzRVKViWlXOpTAtbsMLrCTEKEioZiyY747k8Cw514DKggNu5vUN+dPYm3MpkNz1QQ63oSMzXJ6rYoGck4HQ3dJ96HPRHh7xc3dsm40c6dbsTP+rX5rgNQu8+/d9PknNgriSi4aNdDxy1iz5gg==)
+          username: ENC(tp/CXqcyiL9QFGas0Ukt9/Gn8HC9j8JV2510Q9qPvAs09BRvDptxVLhufsnBx9ol)
+          password: ENC(Z243l8alfYi3Xr0amhRS8CVoo08YS2BvdpUM+3QD0ilQsJj51hXnUfk3s+TtEibc)
           type: com.alibaba.druid.pool.DruidDataSource
   data:
     redis:

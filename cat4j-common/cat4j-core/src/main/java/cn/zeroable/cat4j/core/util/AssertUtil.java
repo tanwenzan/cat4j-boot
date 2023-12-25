@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.core.util;
 
 import cn.zeroable.cat4j.core.exception.BiException;
-import org.springframework.lang.Nullable;
+import jakarta.annotation.Nullable;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;

@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.0.2</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>cn.zeroable</groupId>
 	<artifactId>cat4j-boot</artifactId>
@@ -30,11 +30,11 @@
 		<druid.version>1.1.17</druid.version>
 		<spring.beans.version>5.1.6.RELEASE</spring.beans.version>
 		<mysql.version>8.0.12</mysql.version>
+		<jasypt.version>3.0.3</jasypt.version>
 	</properties>
 	<modules>
 		<module>cat4j-common</module>
 		<module>cat4j-base</module>
-		<module>cat4j-common/cat4j-db-starter</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -83,6 +83,11 @@
 				<artifactId>mysql-connector-java</artifactId>
 				<version>${mysql.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.github.ulisesbocchio</groupId>
+				<artifactId>jasypt-spring-boot-starter</artifactId>
+				<version>${jasypt.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -96,9 +101,22 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
