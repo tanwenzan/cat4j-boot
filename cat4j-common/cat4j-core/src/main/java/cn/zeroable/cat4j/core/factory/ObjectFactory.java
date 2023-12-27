@@ -83,7 +83,7 @@ public interface ObjectFactory<S extends Type<T>, T> {
      * @date 2023/8/18 17:19
      * @see org.springframework.context.annotation.Scope Scope#(spring bean 作用域)
      */
-
+    boolean isPrototype(T type) throws NoSuchBeanDefinitionException;
 
     /**
      * 获取所有类型。

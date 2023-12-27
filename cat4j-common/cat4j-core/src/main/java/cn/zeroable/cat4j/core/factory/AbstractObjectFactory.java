@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.core.factory;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.leagsoft.report.core.factory.config.ObjectDefinition;
+import cn.zeroable.cat4j.core.factory.config.ObjectDefinition;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
