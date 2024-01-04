@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
  * @version 12/24/23 10:02 PM
  * @since 0.0.1
  */
-public class BasePO {
+public class BasePO implements Serializable, Cloneable {
 
     //使用自己实现的类型转换
     @TableId("id")
