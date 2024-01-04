@@ -46,7 +46,7 @@ public class OrganizationPO extends BasePO implements Serializable, Cloneable {
 
 
     @Override
-    public OrganizationPO clone() throws CloneNotSupportedException {
+    public OrganizationPO clone() {
         return (OrganizationPO) super.clone();
     }
 }

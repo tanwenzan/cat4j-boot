@@ -107,4 +107,15 @@ public class BasePO implements Serializable, Cloneable {
         this.updateTime = updateTime;
         return this;
     }
+
+    @Override
+    public BasePO clone() {
+        try {
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return (BasePO) super.clone();
+
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

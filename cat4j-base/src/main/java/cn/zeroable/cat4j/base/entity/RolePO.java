@@ -26,13 +26,7 @@ public class RolePO extends BasePO implements Serializable, Cloneable {
     /** 主键 */
     @TableId("id")
     private Long id;
-    
-    
-    
-    
-    
-    
-    
+
     /** 角色名称 */
     @TableField("roleName")
     private String roleName;
@@ -44,30 +38,6 @@ public class RolePO extends BasePO implements Serializable, Cloneable {
     /** 角色描述 */
     @TableField("roleDesc")
     private String roleDesc;
-    
-    /** 创建人 */
-    @TableField("createBy")
-    private  createBy;
-    
-    /** 创建时间 */
-    @TableField("createTime")
-    private Date createTime;
-    
-    /** 更新人 */
-    @TableField("updateBy")
-    private  updateBy;
-    
-    /** 更新时间 */
-    @TableField("updateTime")
-    private Date updateTime;
-    
-    /** 乐观锁 */
-    @TableField("reVersion")
-    private Integer reVersion;
-    
-    /** 逻辑删除 */
-    @TableField("hide")
-    private tyint hide;
 
     @Override
     public RolePO clone() {

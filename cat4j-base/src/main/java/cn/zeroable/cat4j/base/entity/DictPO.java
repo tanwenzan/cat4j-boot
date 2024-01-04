@@ -44,7 +44,7 @@ public class DictPO extends BasePO implements Serializable, Cloneable {
 
 
     @Override
-    public DictPO clone() throws CloneNotSupportedException {
+    public DictPO clone() {
         return (DictPO) super.clone();
     }
 }

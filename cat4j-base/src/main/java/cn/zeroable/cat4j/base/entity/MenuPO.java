@@ -91,7 +91,7 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     private String menuConfig;
 
     @Override
-    public MenuPO clone() throws CloneNotSupportedException {
+    public MenuPO clone() {
         return (MenuPO) super.clone();
     }
 }

@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import com.leagsoft.report.core.mp.base.BaseServiceImpl;
 import cn.zeroable.cat4j.base.entity.OrganizationPO;
 import cn.zeroable.cat4j.base.mapper.OrganizationMapper;
 import cn.zeroable.cat4j.base.service.OrganizationService;

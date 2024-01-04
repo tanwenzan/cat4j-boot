@@ -34,7 +34,7 @@ public class RoleMenuPO extends BasePO implements Serializable, Cloneable {
     private Long menuId;
 
     @Override
-    public RoleMenuPO clone() throws CloneNotSupportedException {
+    public RoleMenuPO clone() {
         return (RoleMenuPO) super.clone();
     }
 }
