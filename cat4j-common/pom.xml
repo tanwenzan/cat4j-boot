@@ -16,6 +16,7 @@
         <module>cat4j-db-starter</module>
         <module>cat4j-redis-starter</module>
         <module>cat4j-core</module>
+        <module>cat4j-web-starter</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
