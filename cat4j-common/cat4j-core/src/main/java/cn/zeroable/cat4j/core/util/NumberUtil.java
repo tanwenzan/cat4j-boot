@@ -4,7 +4,7 @@ package cn.zeroable.cat4j.core.util;
  * 简要说明.
  * <br/> 详细说明.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 10:23
  * @see
  * @since 0.0.1
@@ -17,7 +17,7 @@ public class NumberUtil {
      *
      * @param value 要转换的字符串，可以为空
      * @return int 字符串表示的 int，如果转换失败则为 0
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 10:25
      */
 

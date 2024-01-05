@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 /**
  * 分页工具.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 10:09
  * @since 0.0.1
  */

@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * 锁选项.
  * <br/> 根据锁选项进行加锁与操作.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 12/23/23 5:30 PM
  * @see LockUtil
  * @see org.redisson.api.RLock
@@ -55,7 +55,7 @@ public class LockOption {
     /**
      * 设置默认租期。
      *
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:24 PM
      */
     private void setDefaultLeaseTime() {
@@ -68,7 +68,7 @@ public class LockOption {
      *
      * @param key key
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:25 PM
      */
     public static LockOption byKey(String key) {
@@ -80,7 +80,7 @@ public class LockOption {
      *
      * @param keys 组合 key
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:26 PM
      */
     public static LockOption byKeys(String... keys) {
@@ -92,7 +92,7 @@ public class LockOption {
      *
      * @param key key
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:27 PM
      */
     public LockOption addKey(String key) {
@@ -106,7 +106,7 @@ public class LockOption {
      *
      * @param keys 组合key
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:28 PM
      */
     public LockOption addKeys(String... keys) {
@@ -124,7 +124,7 @@ public class LockOption {
      * @param leaseTime 租期
      * @param timeUnit  时间单位
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:28 PM
      */
     public LockOption setLeaseTime(Long leaseTime, TimeUnit timeUnit) {
@@ -141,7 +141,7 @@ public class LockOption {
      *
      * @param leaseTime 租期
      * @return cn.zeroable.cat4j.redis.lock.LockOptions
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/23/23 6:30 PM
      */
     public LockOption setLeaseTime(Long leaseTime) {

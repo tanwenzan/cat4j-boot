@@ -9,7 +9,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
  * <br/> 基于{@link BeanDefinition beanDefinition}
  * 进行进一步封装，提供一些更加适用于多策略场景的方法.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/21 9:06
  * @see BeanDefinition beanDefition
  * @since 0.0.1

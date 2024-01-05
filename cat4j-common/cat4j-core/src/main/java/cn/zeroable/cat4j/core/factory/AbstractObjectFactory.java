@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 对象工厂抽象类.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 17:22
  * @see ObjectFactory
  * @since 0.0.1
@@ -44,7 +44,7 @@ public abstract class AbstractObjectFactory<S extends Type<T>, T> implements Obj
      * @param name bean名称
      * @param bean bean实例
      * @return boolean 如果不需要此bean，则返回true，反之返回false
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/30 11:24
      */
 
@@ -57,7 +57,7 @@ public abstract class AbstractObjectFactory<S extends Type<T>, T> implements Obj
      * <br/>如果子类有需要，则子类可以重写此方法
      *
      * @param beansOfType 所有的Beans
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/21 11:09
      */
     protected void processBeansOfTypeIfNeeded(Map<String, S> beansOfType) {
@@ -68,9 +68,8 @@ public abstract class AbstractObjectFactory<S extends Type<T>, T> implements Obj
      * <br/>如果不存在此类型的BeanDefinition时进行断言
      *
      * @param type 类型
-     * @return com.leagsoft.report.core.factory.config.ObjectDefinition
      * @throws NoSuchBeanDefinitionException 如果 不存在这样类型的BeanDefinition时抛出
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/30 11:27
      */
     protected ObjectDefinition assertByType(T type) {

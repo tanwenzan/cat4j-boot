@@ -33,7 +33,7 @@ import java.util.List;
  *     }
  * </pre>
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 16:57
  * @since 0.0.1
  */
@@ -47,7 +47,7 @@ public interface ObjectFactory<S extends Type<T>, T> {
      * @throws BeansException                 – 如果对象没有被创建
      * @throws NoSuchBeanDefinitionException  – 如果该对象的 BeanDefinition 不存在
      * @throws BeanNotOfRequiredTypeException – 如果 bean 不是所需的类型
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 17:09
      */
     S getObject(T type) throws BeansException;
@@ -57,7 +57,7 @@ public interface ObjectFactory<S extends Type<T>, T> {
      *
      * @param type 执行类型
      * @return boolean 是否存在具有给定 类型的 对象实例
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 17:13
      */
     boolean containsObject(T type);
@@ -79,7 +79,7 @@ public interface ObjectFactory<S extends Type<T>, T> {
      * @param type 类型
      * @return boolean boolean 如果该类型的对象是原型，返回 <code>true</code> , 反之返回 <code>false</code> .
      * @throws NoSuchBeanDefinitionException – 如果不存在给定类型的 对象
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 17:19
      * @see org.springframework.context.annotation.Scope Scope#(spring bean 作用域)
      */
@@ -90,7 +90,7 @@ public interface ObjectFactory<S extends Type<T>, T> {
      * <br/> 此方法一般是在需要获取该场景下所有的策略类型，比如前端需要渲染策略类型，那么可以提供一个接口返回数据，而不是采用硬编码的方式。
      *
      * @return java.util.List<T> 返回所有类型
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/21 10:44
      */
     List<T> types();

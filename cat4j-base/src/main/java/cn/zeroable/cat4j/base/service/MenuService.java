@@ -5,7 +5,7 @@ import cn.zeroable.cat4j.base.entity.MenuPO;
 
  /**
  * 菜单表;(cat4j_menu) 表服务接口
- * @author : tanwenzan
+ * @author : zeroable
  * @version : 2023-12-27 21:07:21
  * @since 0.0.1
  */

@@ -6,7 +6,7 @@ import java.util.Optional;
  * 数组工具类.
  * <br/> 封装常用的数组工具类.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 10:34
  * @since 0.0.1
  */
@@ -20,7 +20,7 @@ public class ArrayUtil {
      * @param str   字符串
      * @param split 分割字符
      * @return java.lang.String[] 根据指定的分隔符分割的字符串数组
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 11:03
      */
     public static String[] toStrArray(String str, String split) {
@@ -33,7 +33,7 @@ public class ArrayUtil {
      *
      * @param str 字符串
      * @return java.lang.String[] 根据英文逗号分割的字符串数组
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 11:01
      */
     public static String[] toStrArray(String str) {

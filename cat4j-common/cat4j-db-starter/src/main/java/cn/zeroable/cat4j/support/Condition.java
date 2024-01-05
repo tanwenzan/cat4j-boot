@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * 分页工具.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 10:20
  * @since 0.0.1
  */
@@ -25,7 +25,7 @@ public class Condition {
      *
      * @param query 查询条件
      * @return IPage
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 11:14
      */
     public static <T> IPage<T> getPage(Query query) {
@@ -46,7 +46,7 @@ public class Condition {
      *
      * @param param 参数
      * @return java.lang.String 清理后的标识符
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 11:14
      */
     @Nullable
@@ -69,7 +69,7 @@ public class Condition {
      *
      * @param entity 实体
      * @return com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/18 11:16
      */
     public static <T> QueryWrapper<T> getQueryWrapper(T entity) {

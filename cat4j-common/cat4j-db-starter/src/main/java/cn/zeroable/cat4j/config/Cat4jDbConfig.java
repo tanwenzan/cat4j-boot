@@ -19,7 +19,7 @@ public class Cat4jDbConfig {
      * 分页插件。
      *
      * @return com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/24/23 9:57 PM
      */
     @Bean("paginationInnerInterceptor")
@@ -31,7 +31,7 @@ public class Cat4jDbConfig {
      * 乐观锁插件。
      *
      * @return com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor
-     * @author tanwenzan
+     * @author zeroable
      * @date 12/24/23 9:56 PM
      */
     @Bean("optimisticLockerInnerInterceptor")

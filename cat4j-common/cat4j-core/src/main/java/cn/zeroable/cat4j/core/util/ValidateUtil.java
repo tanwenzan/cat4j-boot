@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * 校验工具.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/23 15:16
  * @since 0.0.1
  */
@@ -24,7 +24,7 @@ public class ValidateUtil {
      *
      * @param t 实体
      * @throws ConstraintViolationException 如果校验不通过
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/23 15:19
      * @see jakarta.validation
      */
@@ -40,7 +40,7 @@ public class ValidateUtil {
      * @param t      实体类
      * @param groups 分组
      * @throws ConstraintViolationException 如果校验不通过
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/23 15:22
      */
     public static <T> void validate(T t, Class<?>... groups) {
@@ -54,7 +54,7 @@ public class ValidateUtil {
      *
      * @param constraintViolations 校验失败结果集合
      * @throws ConstraintViolationException 校验结果集不为空
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/23 15:23
      */
     private static <T> void throwConstraintViolationExceptionIfNeeded(Set<ConstraintViolation<T>> constraintViolations) {

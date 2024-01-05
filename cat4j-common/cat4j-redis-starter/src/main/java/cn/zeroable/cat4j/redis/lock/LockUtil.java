@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 /**
  * LockUtil 分布式锁工具.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/12/23 11:31
  * @see RedissonClient
  * @since 0.0.1
@@ -30,7 +30,7 @@ public class LockUtil {
      *
      * @param lockOption 锁信息
      * @param operator   操作
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/12/23 11:43
      */
     public void lock(LockOption lockOption, Operator operator) {

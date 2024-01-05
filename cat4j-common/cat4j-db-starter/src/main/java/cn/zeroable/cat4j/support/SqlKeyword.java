@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 /**
  * 定义常用的 sql关键字.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2023/8/18 15:04
  * @since 0.0.1
  */

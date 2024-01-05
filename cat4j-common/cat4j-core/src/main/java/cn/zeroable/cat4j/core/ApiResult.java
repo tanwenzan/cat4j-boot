@@ -51,7 +51,7 @@ public class ApiResult<T> {
      * 返回一个不带任何信息何数据的成功标志的对象。
      *
      * @return cn.zeroable.cat4j.core.ApiResult<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:45
      */
     public static <T> ApiResult<T> ok() {
@@ -63,7 +63,7 @@ public class ApiResult<T> {
      *
      * @param code 状态码
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定状态码
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:46
      * @see ApiResult#ok() ApiResult#ok()
      */
@@ -78,7 +78,7 @@ public class ApiResult<T> {
      *
      * @param message 信息，一般是提示信息
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定message
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:49
      */
     public static <T> ApiResult<T> ok(String message) {
@@ -92,7 +92,7 @@ public class ApiResult<T> {
      *
      * @param data 数据
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定数据
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:50
      */
     public static <T> ApiResult<T> ok(T data) {
@@ -107,7 +107,7 @@ public class ApiResult<T> {
      * @param data    数据
      * @param message 信息
      * @return cn.zeroable.cat4j.core.ApiResult<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:51
      */
     public static <T> ApiResult<T> ok(T data, String message) {
@@ -122,7 +122,7 @@ public class ApiResult<T> {
      * @param code 状态码
      * @param data 数据
      * @return cn.zeroable.cat4j.core.ApiResult<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:51
      */
 
@@ -138,7 +138,7 @@ public class ApiResult<T> {
      * @param code    状态码
      * @param message 信息
      * @return cn.zeroable.cat4j.core.ApiResult<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:51
      */
     public static <T> ApiResult<T> ok(Integer code, String message) {
@@ -151,7 +151,7 @@ public class ApiResult<T> {
      * 返回一个不带任何信息何数据的失败标志的对象。
      *
      * @return cn.zeroable.cat4j.core.ApiResult<T>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:52
      */
     public static <T> ApiResult<T> fail() {
@@ -163,7 +163,7 @@ public class ApiResult<T> {
      *
      * @param message 信息
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定信息
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:52
      */
     public static <T> ApiResult<T> fail(String message) {
@@ -178,7 +178,7 @@ public class ApiResult<T> {
      * @param code    状态码
      * @param message 信息
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定状态码与信息
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:52
      */
     public static <T> ApiResult<T> fail(Integer code, String message) {
@@ -193,7 +193,7 @@ public class ApiResult<T> {
      * @param data    数据
      * @param message 消息
      * @return cn.zeroable.cat4j.core.ApiResult<T> 指定数据与指定信息
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 14:53
      */
     public static <T> ApiResult<T> fail(T data, String message) {

@@ -5,7 +5,7 @@ import cn.zeroable.cat4j.base.entity.RoleMenuPO;
 
  /**
  * 角色权限表;(cat4j_role_menu) 表服务接口
- * @author : tanwenzan
+ * @author : zeroable
  * @version : 2023-12-27 21:34:21
  * @since 0.0.1
  */
