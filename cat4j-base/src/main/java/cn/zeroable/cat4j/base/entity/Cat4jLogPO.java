@@ -41,25 +41,25 @@ public class Cat4jLogPO extends BasePO implements Serializable, Cloneable {
     /**
      * 服务ID
      */
-    @TableField("serviceId")
+    @TableField("service_id")
     private String serviceId;
 
     /**
      * ip地址
      */
-    @TableField("remoteAddr")
+    @TableField("remote_addr")
     private String remoteAddr;
 
     /**
      * 用户代理
      */
-    @TableField("userAgent")
+    @TableField("user_agent")
     private String userAgent;
 
     /**
      * 请求URI
      */
-    @TableField("requestUri")
+    @TableField("request_uri")
     private String requestUri;
 
     /**

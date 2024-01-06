@@ -28,15 +28,15 @@ public class RolePO extends BasePO implements Serializable, Cloneable {
     private Long id;
 
     /** 角色名称 */
-    @TableField("roleName")
+    @TableField("role_name")
     private String roleName;
     
     /** 角色代码 */
-    @TableField("roleCode")
+    @TableField("role_code")
     private String roleCode;
     
     /** 角色描述 */
-    @TableField("roleDesc")
+    @TableField("role_desc")
     private String roleDesc;
 
     @Override

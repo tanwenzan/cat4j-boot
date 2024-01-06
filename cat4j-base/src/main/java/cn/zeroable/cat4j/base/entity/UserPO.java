@@ -36,27 +36,27 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
     /**
      * 账号
      */
-    @TableField("loginId")
+    @TableField("login_id")
     @NotBlank(message = "用户的账号不能为空")
     private String loginId;
 
     /**
      * 密码
      */
-    @TableField("loginPwd")
+    @TableField("login_pwd")
     @NotBlank(message = "用户的密码不能为空")
     private String loginPwd;
 
     /**
      * 用户名
      */
-    @TableField("userName")
+    @TableField("user_name")
     private String userName;
 
     /**
      * 所属组织
      */
-    @TableField("orgId")
+    @TableField("org_id")
     private Long orgId;
 
     /**
@@ -74,7 +74,7 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
     /**
      * 手机号码
      */
-    @TableField("phoneNumber")
+    @TableField("phone_number")
     private String phoneNumber;
 
     /**
@@ -92,7 +92,7 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
     /**
      * 锁定标识:0=正常,1=锁定
      */
-    @TableField("lockFlag")
+    @TableField("lock_flag")
     private Integer lockFlag;
 
     @Override

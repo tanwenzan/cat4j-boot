@@ -1,4 +1,4 @@
-package cn.zeroable.cat4j.auth.handler;
+package cn.zeroable.cat4j.security.handler;
 
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;

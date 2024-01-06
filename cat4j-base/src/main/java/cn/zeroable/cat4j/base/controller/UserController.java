@@ -105,17 +105,4 @@ public class UserController {
     public ApiResult<Boolean> deleteById(@RequestBody @Validated BaseDeleteDTO baseDelete) {
         return ApiResult.ok(userService.removeByIds(Arrays.asList(ArrayUtil.toStrArray(baseDelete.getIds()))));
     }
-
-    /**
-     * 登录接口。
-     *
-     * @param user 用户信息，主要是账号密码
-     * @return cn.zeroable.cat4j.core.ApiResult<cn.dev33.satoken.stp.SaTokenInfo> token 信息
-     * @author tanwenzan
-     * @date 1/6/24 12:35 AM
-     */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ApiResult<SaTokenInfo> login(@RequestBody LoginDTO user) {
-        return ApiResult.ok(userService.login(user));
-    }
 }

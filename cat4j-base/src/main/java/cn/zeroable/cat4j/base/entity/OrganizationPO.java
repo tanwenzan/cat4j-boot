@@ -29,13 +29,13 @@ public class OrganizationPO extends BasePO implements Serializable, Cloneable {
     /**
      * 父节点
      */
-    @TableField("parentId")
+    @TableField("parent_id")
     private Long parentId;
 
     /**
      * 组织架构名称
      */
-    @TableField("orgName")
+    @TableField("org_name")
     private String orgName;
 
     /**

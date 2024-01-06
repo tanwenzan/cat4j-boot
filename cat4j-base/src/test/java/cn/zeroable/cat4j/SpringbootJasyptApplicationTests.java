@@ -32,7 +32,7 @@ public class SpringbootJasyptApplicationTests {
     public void encrypt() {
 //        String url = encryptor.encrypt("jdbc:mysql://192.168.158.131:3306/cat4j_bi?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
         String url = encryptor.encrypt("jdbc:mysql://127.0.0.1:3306/cat4j_base?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
-        String name = encryptor.encrypt("zeroable");
+        String name = encryptor.encrypt("root");
         String password = encryptor.encrypt("zeroable2020");
         System.out.println("database url: " + url);
         System.out.println("database name: " + name);

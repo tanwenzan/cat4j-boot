@@ -28,13 +28,13 @@ public class DictItemPO extends BasePO implements Serializable, Cloneable {
     /**
      * 字典ID
      */
-    @TableField("dictId")
+    @TableField("dict_id")
     private String dictId;
 
     /**
      * 字典标识
      */
-    @TableField("dictKey")
+    @TableField("dict_key")
     private String dictKey;
 
     /**
@@ -64,7 +64,7 @@ public class DictItemPO extends BasePO implements Serializable, Cloneable {
     /**
      * 排序（升序）
      */
-    @TableField("sortOrder")
+    @TableField("sort_order")
     private Integer sortOrder;
 
     /**

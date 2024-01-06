@@ -41,6 +41,10 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-3-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.zeroable</groupId>
+            <artifactId>cat4j-security</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

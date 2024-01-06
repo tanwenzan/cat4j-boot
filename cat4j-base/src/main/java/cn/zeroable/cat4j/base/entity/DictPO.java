@@ -27,7 +27,7 @@ public class DictPO extends BasePO implements Serializable, Cloneable {
     /**
      * 标识
      */
-    @TableField("dictKey")
+    @TableField("dict_key")
     private String dictKey;
 
     /**
@@ -39,7 +39,7 @@ public class DictPO extends BasePO implements Serializable, Cloneable {
     /**
      * 是否是系统内置
      */
-    @TableField("sysFlag")
+    @TableField("sys_flag")
     private Boolean sysFlag;
 
 

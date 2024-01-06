@@ -27,13 +27,13 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     /**
      * 父菜单ID
      */
-    @TableField("parentId")
+    @TableField("parent_id")
     private String parentId;
 
     /**
      * 菜单路径
      */
-    @TableField("treePath")
+    @TableField("tree_path")
     private String treePath;
 
     /**
@@ -63,13 +63,13 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     /**
      * 排序值
      */
-    @TableField("sortOrder")
+    @TableField("sort_order")
     private String sortOrder;
 
     /**
      * 0-开启，1- 关闭
      */
-    @TableField("keepAlive")
+    @TableField("keep_alive")
     private String keepAlive;
 
     /**
@@ -81,13 +81,13 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     /**
      * 菜单类型（0 元对象 1 代码）
      */
-    @TableField("menuType")
+    @TableField("menu_type")
     private Integer menuType;
 
     /**
      * 菜单配置
      */
-    @TableField("menuConfig")
+    @TableField("menu_config")
     private String menuConfig;
 
     @Override
