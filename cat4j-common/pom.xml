@@ -17,6 +17,8 @@
         <module>cat4j-redis-starter</module>
         <module>cat4j-core</module>
         <module>cat4j-web-starter</module>
+        <module>cat4j-auth</module>
+        <module>cat4j-security</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

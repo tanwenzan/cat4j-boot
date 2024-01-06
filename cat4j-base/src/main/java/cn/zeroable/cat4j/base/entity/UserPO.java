@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -36,12 +37,14 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
      * 账号
      */
     @TableField("loginId")
+    @NotBlank(message = "用户的账号不能为空")
     private String loginId;
 
     /**
      * 密码
      */
     @TableField("loginPwd")
+    @NotBlank(message = "用户的密码不能为空")
     private String loginPwd;
 
     /**
@@ -84,7 +87,7 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
      * 简介
      */
     @TableField("introduction")
-    private String ntroduction;
+    private String introduction;
 
     /**
      * 锁定标识:0=正常,1=锁定

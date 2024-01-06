@@ -12,7 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
  * @version 12/23/23 6:03 PM
  * @since 0.0.1
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"cn.zeroable.cat4j"})
 @EnableCaching
 @EnableEncryptableProperties
 public class Cat4jApplication {

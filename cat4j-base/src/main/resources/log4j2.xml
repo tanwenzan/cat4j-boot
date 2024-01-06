@@ -7,7 +7,7 @@
         <Property name="PROJECT_NAME">cat4j-boot</Property>
         <!-- 文件输出格式 -->
         <property name="PATTERN">[${PROJECT_NAME}] [%d{yyyy-MM-dd HH:mm:ss.SSS}] [-%-5level] [%thread][%X{TRACE_ID}] [%X{requestId}] [%l] [%msg]%n</property>
-        <property name="BASEDIR">./logs</property>
+        <property name="BASEDIR">logs</property>
         <Property name="rollingLogSize">100 MB</Property>
         <Property name="rollingLogMaxNum">10</Property>
     </properties>

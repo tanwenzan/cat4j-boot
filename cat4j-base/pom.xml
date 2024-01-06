@@ -15,6 +15,10 @@
     <dependencies>
         <dependency>
             <groupId>cn.zeroable</groupId>
+            <artifactId>cat4j-auth</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.zeroable</groupId>
             <artifactId>cat4j-web-starter</artifactId>
         </dependency>
         <dependency>
