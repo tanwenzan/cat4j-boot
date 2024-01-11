@@ -17,7 +17,8 @@ import cn.zeroable.cat4j.base.entity.OrganizationPO;
 import cn.zeroable.cat4j.base.service.OrganizationService;
 
 import java.util.Arrays;
- /**
+
+/**
  * 组织架构 接口
  *
  * @author zeroable
@@ -31,9 +32,9 @@ import java.util.Arrays;
 @Slf4j
 public class OrganizationController {
     private OrganizationService organizationService;
-    
-    /** 
-     * 通过ID查询单条数据 
+
+    /**
+     * 通过ID查询单条数据
      *
      * @param id 主键
      * @return ApiResult<OrganizationPO>  实例对象
@@ -45,24 +46,24 @@ public class OrganizationController {
         OrganizationPO detail = organizationService.getById(id);
         return ApiResult.ok(detail);
     }
-    
-    /** 
+
+    /**
      * 分页查询
      *
      * @param organization 筛选条件
-     * @param query 分页对象
-     * @return ApiResult<IPage<OrganizationPO>> 查询结果
+     * @param query        分页对象
+     * @return ApiResult<IPage < OrganizationPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:32:21
      */
     @GetMapping
-    public ApiResult<IPage<OrganizationPO>> pageQuery(@RequestParam OrganizationPO organization, Query query) {
+    public ApiResult<IPage<OrganizationPO>> pageQuery(OrganizationPO organization, Query query) {
         QueryWrapper<OrganizationPO> queryWrapper = Condition.getQueryWrapper(organization);
-		IPage<OrganizationPO> pages = organizationService.page(Condition.getPage(query), queryWrapper);
+        IPage<OrganizationPO> pages = organizationService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
-    
-    /** 
+
+    /**
      * 新增数据
      *
      * @param organization 实例对象
@@ -75,8 +76,8 @@ public class OrganizationController {
         organizationService.save(organization);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 更新数据
      *
      * @param organization 实例对象
@@ -89,8 +90,8 @@ public class OrganizationController {
         organizationService.updateById(organization);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 通过主键删除数据
      *
      * @param baseDelete 主键

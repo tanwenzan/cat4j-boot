@@ -1,7 +1,5 @@
 package cn.zeroable.cat4j.base.controller;
 
-import cn.dev33.satoken.stp.SaTokenInfo;
-import cn.zeroable.cat4j.base.pojo.dto.LoginDTO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import cn.zeroable.cat4j.core.validation.Add;
@@ -33,6 +31,7 @@ import java.util.Arrays;
 @AllArgsConstructor
 @Slf4j
 public class UserController {
+
     private UserService userService;
 
     /**

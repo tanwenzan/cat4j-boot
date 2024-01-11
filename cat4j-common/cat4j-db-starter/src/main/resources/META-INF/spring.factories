@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-    cn.zeroable.cat4j.config.Cat4jDbConfig
-  

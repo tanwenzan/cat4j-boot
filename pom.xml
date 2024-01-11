@@ -36,6 +36,8 @@
     <modules>
         <module>cat4j-common</module>
         <module>cat4j-base</module>
+        <module>cat4j-bean</module>
+        <module>cat4j-bean/cat4j-base-api</module>
     </modules>
     <dependencyManagement>
         <dependencies>
@@ -90,6 +92,11 @@
                 <version>${cat4j.version}</version>
             </dependency>
             <dependency>
+                <groupId>cn.zeroable</groupId>
+                <artifactId>cat4j-base-api</artifactId>
+                <version>${cat4j.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.starter.version}</version>
@@ -111,11 +118,17 @@
             </dependency>
             <dependency>
                 <groupId>cn.dev33</groupId>
-                <artifactId>sa-token-oauth2</artifactId>
+                <artifactId>sa-token-jwt</artifactId>
+                <version>${sa.token.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
                 <version>${sa.token.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>

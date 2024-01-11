@@ -17,7 +17,8 @@ import cn.zeroable.cat4j.base.entity.DictPO;
 import cn.zeroable.cat4j.base.service.DictService;
 
 import java.util.Arrays;
- /**
+
+/**
  * 字典表 接口
  *
  * @author zeroable
@@ -31,9 +32,9 @@ import java.util.Arrays;
 @Slf4j
 public class DictController {
     private DictService dictService;
-    
-    /** 
-     * 通过ID查询单条数据 
+
+    /**
+     * 通过ID查询单条数据
      *
      * @param id 主键
      * @return ApiResult<DictPO>  实例对象
@@ -45,24 +46,24 @@ public class DictController {
         DictPO detail = dictService.getById(id);
         return ApiResult.ok(detail);
     }
-    
-    /** 
+
+    /**
      * 分页查询
      *
-     * @param dict 筛选条件
+     * @param dict  筛选条件
      * @param query 分页对象
-     * @return ApiResult<IPage<DictPO>> 查询结果
+     * @return ApiResult<IPage < DictPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictPO>> pageQuery(@RequestParam DictPO dict, Query query) {
+    public ApiResult<IPage<DictPO>> pageQuery(DictPO dict, Query query) {
         QueryWrapper<DictPO> queryWrapper = Condition.getQueryWrapper(dict);
-		IPage<DictPO> pages = dictService.page(Condition.getPage(query), queryWrapper);
+        IPage<DictPO> pages = dictService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
-    
-    /** 
+
+    /**
      * 新增数据
      *
      * @param dict 实例对象
@@ -75,8 +76,8 @@ public class DictController {
         dictService.save(dict);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 更新数据
      *
      * @param dict 实例对象
@@ -89,8 +90,8 @@ public class DictController {
         dictService.updateById(dict);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 通过主键删除数据
      *
      * @param baseDelete 主键

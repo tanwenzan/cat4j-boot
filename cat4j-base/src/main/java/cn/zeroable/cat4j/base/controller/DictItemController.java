@@ -17,7 +17,8 @@ import cn.zeroable.cat4j.base.entity.DictItemPO;
 import cn.zeroable.cat4j.base.service.DictItemService;
 
 import java.util.Arrays;
- /**
+
+/**
  * 字典明细 接口
  *
  * @author zeroable
@@ -31,9 +32,9 @@ import java.util.Arrays;
 @Slf4j
 public class DictItemController {
     private DictItemService dictItemService;
-    
-    /** 
-     * 通过ID查询单条数据 
+
+    /**
+     * 通过ID查询单条数据
      *
      * @param id 主键
      * @return ApiResult<DictItemPO>  实例对象
@@ -45,24 +46,24 @@ public class DictItemController {
         DictItemPO detail = dictItemService.getById(id);
         return ApiResult.ok(detail);
     }
-    
-    /** 
+
+    /**
      * 分页查询
      *
      * @param dictItem 筛选条件
-     * @param query 分页对象
-     * @return ApiResult<IPage<DictItemPO>> 查询结果
+     * @param query    分页对象
+     * @return ApiResult<IPage < DictItemPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictItemPO>> pageQuery(@RequestParam DictItemPO dictItem, Query query) {
+    public ApiResult<IPage<DictItemPO>> pageQuery(DictItemPO dictItem, Query query) {
         QueryWrapper<DictItemPO> queryWrapper = Condition.getQueryWrapper(dictItem);
-		IPage<DictItemPO> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
+        IPage<DictItemPO> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
-    
-    /** 
+
+    /**
      * 新增数据
      *
      * @param dictItem 实例对象
@@ -75,8 +76,8 @@ public class DictItemController {
         dictItemService.save(dictItem);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 更新数据
      *
      * @param dictItem 实例对象
@@ -89,8 +90,8 @@ public class DictItemController {
         dictItemService.updateById(dictItem);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 通过主键删除数据
      *
      * @param baseDelete 主键

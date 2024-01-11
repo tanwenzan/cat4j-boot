@@ -17,7 +17,8 @@ import cn.zeroable.cat4j.base.entity.Cat4jLogPO;
 import cn.zeroable.cat4j.base.service.Cat4jLogService;
 
 import java.util.Arrays;
- /**
+
+/**
  * 系统日志 接口
  *
  * @author zeroable
@@ -31,9 +32,9 @@ import java.util.Arrays;
 @Slf4j
 public class Cat4jLogController {
     private Cat4jLogService cat4jLogService;
-    
-    /** 
-     * 通过ID查询单条数据 
+
+    /**
+     * 通过ID查询单条数据
      *
      * @param id 主键
      * @return ApiResult<Cat4jLogPO>  实例对象
@@ -45,24 +46,24 @@ public class Cat4jLogController {
         Cat4jLogPO detail = cat4jLogService.getById(id);
         return ApiResult.ok(detail);
     }
-    
-    /** 
+
+    /**
      * 分页查询
      *
      * @param cat4jLog 筛选条件
-     * @param query 分页对象
-     * @return ApiResult<IPage<Cat4jLogPO>> 查询结果
+     * @param query    分页对象
+     * @return ApiResult<IPage < Cat4jLogPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:36:21
      */
     @GetMapping
-    public ApiResult<IPage<Cat4jLogPO>> pageQuery(@RequestParam Cat4jLogPO cat4jLog, Query query) {
+    public ApiResult<IPage<Cat4jLogPO>> pageQuery(Cat4jLogPO cat4jLog, Query query) {
         QueryWrapper<Cat4jLogPO> queryWrapper = Condition.getQueryWrapper(cat4jLog);
-		IPage<Cat4jLogPO> pages = cat4jLogService.page(Condition.getPage(query), queryWrapper);
+        IPage<Cat4jLogPO> pages = cat4jLogService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
-    
-    /** 
+
+    /**
      * 新增数据
      *
      * @param cat4jLog 实例对象
@@ -75,8 +76,8 @@ public class Cat4jLogController {
         cat4jLogService.save(cat4jLog);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 更新数据
      *
      * @param cat4jLog 实例对象
@@ -89,8 +90,8 @@ public class Cat4jLogController {
         cat4jLogService.updateById(cat4jLog);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 通过主键删除数据
      *
      * @param baseDelete 主键

@@ -3,8 +3,11 @@ package cn.zeroable.cat4j.base.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import cn.zeroable.cat4j.base.entity.RoleMenuPO;
+import org.apache.ibatis.annotations.Param;
 
- /**
+import java.util.List;
+
+/**
  * 角色权限表;(cat4j_role_menu)表数据库访问层
  *
  * @author : zeroable
@@ -13,4 +16,7 @@ import cn.zeroable.cat4j.base.entity.RoleMenuPO;
  */
 @Mapper
 public interface RoleMenuMapper extends BaseMapper<RoleMenuPO> {
+
+    List<String> getPermissionList(@Param("userId") Object userId);
+
 }

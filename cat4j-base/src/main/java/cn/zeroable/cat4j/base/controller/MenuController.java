@@ -55,7 +55,7 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @GetMapping
-    public ApiResult<IPage<MenuPO>> pageQuery(@RequestParam MenuPO menu, Query query) {
+    public ApiResult<IPage<MenuPO>> pageQuery(MenuPO menu, Query query) {
         QueryWrapper<MenuPO> queryWrapper = Condition.getQueryWrapper(menu);
 		IPage<MenuPO> pages = menuService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);

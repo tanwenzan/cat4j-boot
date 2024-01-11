@@ -1,5 +1,7 @@
-package cn.zeroable.cat4j.base.pojo.dto;
+package cn.zeroable.cat4j.base.dto;
 
+import cn.hutool.json.JSONObject;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +14,6 @@ import java.io.Serializable;
  *
  * @author zeroable
  * @version 1/6/24 9:40 AM
- * @see cn.zeroable.cat4j.base.service.UserService
  * @since 0.0.1
  */
 @Data
@@ -26,7 +27,8 @@ public class LoginDTO implements Serializable {
     @NotBlank(message = "登录密码不能为空")
     private String passWord;
 
-    public static LoginDTO byNameAndPwd(String userName, String passWord) {
-        return new LoginDTO(userName, passWord);
-    }
+    @NotNull(message = "登录方式不能为空")
+    private Integer loginType;
+
+    private JSONObject config;
 }

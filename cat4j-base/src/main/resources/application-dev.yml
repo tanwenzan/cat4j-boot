@@ -69,6 +69,7 @@ logging:
     root: debug
 
 mybatis-plus:
+  dbType: mysql
   mapper-locations: classpath:mapper/**/**.xml
   global-config:
     db-config:
@@ -88,9 +89,6 @@ mybatis-plus:
 sa-token:
   # token名称 (同时也是cookie名称)
   token-name: CAT4J-AUTH-TOKEN
-  # OAuth2.0 配置
-  oauth2:
-    is-code: true
-    is-implicit: true
-    is-password: true
-    is-client: true
+  # 操作频率 2个小时
+  active-timeout: 7200
+  jwt-secret-key: asdasdasifhueuiwyurfewbfjsdafjk

@@ -17,7 +17,8 @@ import cn.zeroable.cat4j.base.entity.RolePO;
 import cn.zeroable.cat4j.base.service.RoleService;
 
 import java.util.Arrays;
- /**
+
+/**
  * 角色表 接口
  *
  * @author zeroable
@@ -31,9 +32,9 @@ import java.util.Arrays;
 @Slf4j
 public class RoleController {
     private RoleService roleService;
-    
-    /** 
-     * 通过ID查询单条数据 
+
+    /**
+     * 通过ID查询单条数据
      *
      * @param id 主键
      * @return ApiResult<RolePO>  实例对象
@@ -45,24 +46,24 @@ public class RoleController {
         RolePO detail = roleService.getById(id);
         return ApiResult.ok(detail);
     }
-    
-    /** 
+
+    /**
      * 分页查询
      *
-     * @param role 筛选条件
+     * @param role  筛选条件
      * @param query 分页对象
-     * @return ApiResult<IPage<RolePO>> 查询结果
+     * @return ApiResult<IPage < RolePO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:34:21
      */
     @GetMapping
-    public ApiResult<IPage<RolePO>> pageQuery(@RequestParam RolePO role, Query query) {
+    public ApiResult<IPage<RolePO>> pageQuery(RolePO role, Query query) {
         QueryWrapper<RolePO> queryWrapper = Condition.getQueryWrapper(role);
-		IPage<RolePO> pages = roleService.page(Condition.getPage(query), queryWrapper);
+        IPage<RolePO> pages = roleService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
-    
-    /** 
+
+    /**
      * 新增数据
      *
      * @param role 实例对象
@@ -75,8 +76,8 @@ public class RoleController {
         roleService.save(role);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 更新数据
      *
      * @param role 实例对象
@@ -89,8 +90,8 @@ public class RoleController {
         roleService.updateById(role);
         return ApiResult.ok();
     }
-    
-    /** 
+
+    /**
      * 通过主键删除数据
      *
      * @param baseDelete 主键

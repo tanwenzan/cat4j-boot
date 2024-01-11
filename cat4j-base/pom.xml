@@ -15,10 +15,6 @@
     <dependencies>
         <dependency>
             <groupId>cn.zeroable</groupId>
-            <artifactId>cat4j-auth</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.zeroable</groupId>
             <artifactId>cat4j-web-starter</artifactId>
         </dependency>
         <dependency>
@@ -44,6 +40,18 @@
         <dependency>
             <groupId>cn.zeroable</groupId>
             <artifactId>cat4j-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.zeroable</groupId>
+            <artifactId>cat4j-base-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-jwt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
         </dependency>
     </dependencies>
 

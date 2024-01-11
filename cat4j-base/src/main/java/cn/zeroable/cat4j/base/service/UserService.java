@@ -1,7 +1,6 @@
 package cn.zeroable.cat4j.base.service;
 
-import cn.dev33.satoken.stp.SaTokenInfo;
-import cn.zeroable.cat4j.base.pojo.dto.LoginDTO;
+import cn.zeroable.cat4j.base.dto.LoginDTO;
 import cn.zeroable.cat4j.core.ApiResult;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.zeroable.cat4j.base.entity.UserPO;
@@ -14,7 +13,4 @@ import cn.zeroable.cat4j.base.entity.UserPO;
  * @since 0.0.1
  */
 public interface UserService extends IService<UserPO> {
-
-    ApiResult<String> login(LoginDTO user);
-
 }
