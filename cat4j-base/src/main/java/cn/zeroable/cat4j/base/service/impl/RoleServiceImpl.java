@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.entity.RolePO;
+import cn.zeroable.cat4j.base.po.Role;
 import cn.zeroable.cat4j.base.mapper.RoleMapper;
 import cn.zeroable.cat4j.base.service.RoleService;
 /**
@@ -17,5 +17,5 @@ import cn.zeroable.cat4j.base.service.RoleService;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class RoleServiceImpl extends ServiceImpl<RoleMapper, RolePO> implements RoleService {
+public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 }

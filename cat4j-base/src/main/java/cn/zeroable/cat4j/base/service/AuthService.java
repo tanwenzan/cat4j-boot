@@ -18,7 +18,7 @@ public interface AuthService {
      *
      * @param loginDTO 登录信息
      * @return cn.zeroable.cat4j.core.ApiResult<cn.dev33.satoken.stp.SaTokenInfo>
-     * @author tanwenzan
+     * @author zeroable
      * @date 1/11/24 11:58 PM
      */
 

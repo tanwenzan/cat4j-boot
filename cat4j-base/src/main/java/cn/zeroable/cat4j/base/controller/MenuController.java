@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.entity.MenuPO;
+import cn.zeroable.cat4j.base.po.Menu;
 import cn.zeroable.cat4j.base.service.MenuService;
 
 import java.util.Arrays;
@@ -40,8 +40,8 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @GetMapping("{id}")
-    public ApiResult<MenuPO> detail(@PathVariable String id) {
-        MenuPO detail = menuService.getById(id);
+    public ApiResult<Menu> detail(@PathVariable String id) {
+        Menu detail = menuService.getById(id);
         return ApiResult.ok(detail);
     }
     
@@ -55,9 +55,9 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @GetMapping
-    public ApiResult<IPage<MenuPO>> pageQuery(MenuPO menu, Query query) {
-        QueryWrapper<MenuPO> queryWrapper = Condition.getQueryWrapper(menu);
-		IPage<MenuPO> pages = menuService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<Menu>> pageQuery(Menu menu, Query query) {
+        QueryWrapper<Menu> queryWrapper = Condition.getQueryWrapper(menu);
+		IPage<Menu> pages = menuService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
     
@@ -70,7 +70,7 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @PostMapping
-    public ApiResult<MenuPO> add(@RequestBody @Validated(Add.class) MenuPO menu) {
+    public ApiResult<Menu> add(@RequestBody @Validated(Add.class) Menu menu) {
         menuService.save(menu);
         return ApiResult.ok();
     }
@@ -84,7 +84,7 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @PutMapping
-    public ApiResult<MenuPO> edit(@RequestBody @Validated(Update.class) MenuPO menu) {
+    public ApiResult<Menu> edit(@RequestBody @Validated(Update.class) Menu menu) {
         menuService.updateById(menu);
         return ApiResult.ok();
     }

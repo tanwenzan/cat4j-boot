@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.entity.DictItemPO;
+import cn.zeroable.cat4j.base.po.DictItem;
 import cn.zeroable.cat4j.base.service.DictItemService;
 
 import java.util.Arrays;
@@ -42,8 +42,8 @@ public class DictItemController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping("{id}")
-    public ApiResult<DictItemPO> detail(@PathVariable String id) {
-        DictItemPO detail = dictItemService.getById(id);
+    public ApiResult<DictItem> detail(@PathVariable String id) {
+        DictItem detail = dictItemService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -57,9 +57,9 @@ public class DictItemController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictItemPO>> pageQuery(DictItemPO dictItem, Query query) {
-        QueryWrapper<DictItemPO> queryWrapper = Condition.getQueryWrapper(dictItem);
-        IPage<DictItemPO> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<DictItem>> pageQuery(DictItem dictItem, Query query) {
+        QueryWrapper<DictItem> queryWrapper = Condition.getQueryWrapper(dictItem);
+        IPage<DictItem> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -72,7 +72,7 @@ public class DictItemController {
      * @date 2023-12-27 21:35:21
      */
     @PostMapping
-    public ApiResult<DictItemPO> add(@RequestBody @Validated(Add.class) DictItemPO dictItem) {
+    public ApiResult<DictItem> add(@RequestBody @Validated(Add.class) DictItem dictItem) {
         dictItemService.save(dictItem);
         return ApiResult.ok();
     }
@@ -86,7 +86,7 @@ public class DictItemController {
      * @date 2023-12-27 21:35:21
      */
     @PutMapping
-    public ApiResult<DictItemPO> edit(@RequestBody @Validated(Update.class) DictItemPO dictItem) {
+    public ApiResult<DictItem> edit(@RequestBody @Validated(Update.class) DictItem dictItem) {
         dictItemService.updateById(dictItem);
         return ApiResult.ok();
     }

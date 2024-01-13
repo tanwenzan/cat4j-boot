@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 /**
  * 鉴权配置.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2024/1/12 19:06
  * @since 0.0.1
  */

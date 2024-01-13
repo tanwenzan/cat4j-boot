@@ -2,6 +2,7 @@ package cn.zeroable.cat4j.security.handler;
 
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
+import cn.hutool.core.util.StrUtil;
 import cn.zeroable.cat4j.core.ApiResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.annotation.Order;
@@ -27,13 +28,13 @@ public class AuthExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.Object>
-     * @author tanwenzan
+     * @author zeroable
      * @date 1/6/24 12:15 AM
      */
     @ExceptionHandler(NotPermissionException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public ApiResult<String> notPermissionException(NotPermissionException e) {
-        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), "您无权限执行次操作");
+        return ApiResult.fail(HttpStatus.FORBIDDEN.value(), e.getMessage());
     }
 
     /**
@@ -41,12 +42,14 @@ public class AuthExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.Object>
-     * @author tanwenzan
+     * @author zeroable
      * @date 1/6/24 12:15 AM
      */
     @ExceptionHandler(NotLoginException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiResult<String> notLoginException(NotLoginException e) {
-        return ApiResult.fail(HttpStatus.UNAUTHORIZED.value(), "未登录");
+        ApiResult<String> fail = ApiResult.fail(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
+        fail.setData(e.getType());
+        return fail;
     }
 }

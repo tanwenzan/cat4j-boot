@@ -37,7 +37,7 @@ public class BiExceptionHandler {
      *
      * @param e 错误信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.String>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/23 14:12
      */
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -64,7 +64,7 @@ public class BiExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.String>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 15:32
      */
     @ExceptionHandler({ConstraintViolationException.class})
@@ -83,7 +83,7 @@ public class BiExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.Object>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 15:32
      */
     @ExceptionHandler(BiException.class)
@@ -98,7 +98,7 @@ public class BiExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.Object>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 15:31
      */
     @ExceptionHandler(Exception.class)
@@ -113,7 +113,7 @@ public class BiExceptionHandler {
      *
      * @param e 异常信息
      * @return cn.zeroable.cat4j.core.ApiResult<java.lang.Object>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2023/8/8 15:31
      */
     @ExceptionHandler(Throwable.class)

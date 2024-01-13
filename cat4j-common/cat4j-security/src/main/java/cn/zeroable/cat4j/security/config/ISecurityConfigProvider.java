@@ -17,7 +17,7 @@ public interface ISecurityConfigProvider {
      * <br/>详细说明
      *
      * @return java.lang.String[]
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/12 18:33
      */
     String[] getLoginPathPatterns();
@@ -27,7 +27,7 @@ public interface ISecurityConfigProvider {
      * 获取不需要进行登录的路径。
      *
      * @return java.lang.String[] 不需要进行登录的路径
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/12 18:54
      */
     String[] getLoginNotMatch();

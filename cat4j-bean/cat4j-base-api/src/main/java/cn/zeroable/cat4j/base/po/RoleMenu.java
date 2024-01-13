@@ -1,11 +1,11 @@
-package cn.zeroable.cat4j.base.entity;
+package cn.zeroable.cat4j.base.po;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
 
@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class RoleMenuPO implements Serializable {
+public class RoleMenu implements Serializable {
 
     /**
      * 角色ID

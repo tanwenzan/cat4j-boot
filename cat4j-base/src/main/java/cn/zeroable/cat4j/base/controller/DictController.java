@@ -13,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.entity.DictPO;
+import cn.zeroable.cat4j.base.po.Dict;
 import cn.zeroable.cat4j.base.service.DictService;
 
 import java.util.Arrays;
@@ -42,8 +42,8 @@ public class DictController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping("{id}")
-    public ApiResult<DictPO> detail(@PathVariable String id) {
-        DictPO detail = dictService.getById(id);
+    public ApiResult<Dict> detail(@PathVariable String id) {
+        Dict detail = dictService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -57,9 +57,9 @@ public class DictController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictPO>> pageQuery(DictPO dict, Query query) {
-        QueryWrapper<DictPO> queryWrapper = Condition.getQueryWrapper(dict);
-        IPage<DictPO> pages = dictService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<Dict>> pageQuery(Dict dict, Query query) {
+        QueryWrapper<Dict> queryWrapper = Condition.getQueryWrapper(dict);
+        IPage<Dict> pages = dictService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -72,7 +72,7 @@ public class DictController {
      * @date 2023-12-27 21:35:21
      */
     @PostMapping
-    public ApiResult<DictPO> add(@RequestBody @Validated(Add.class) DictPO dict) {
+    public ApiResult<Dict> add(@RequestBody @Validated(Add.class) Dict dict) {
         dictService.save(dict);
         return ApiResult.ok();
     }
@@ -86,7 +86,7 @@ public class DictController {
      * @date 2023-12-27 21:35:21
      */
     @PutMapping
-    public ApiResult<DictPO> edit(@RequestBody @Validated(Update.class) DictPO dict) {
+    public ApiResult<Dict> edit(@RequestBody @Validated(Update.class) Dict dict) {
         dictService.updateById(dict);
         return ApiResult.ok();
     }

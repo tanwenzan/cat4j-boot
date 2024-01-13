@@ -2,7 +2,7 @@ package cn.zeroable.cat4j.base.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import cn.zeroable.cat4j.base.entity.RoleMenuPO;
+import cn.zeroable.cat4j.base.po.RoleMenu;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
  * @since 0.0.1
  */
 @Mapper
-public interface RoleMenuMapper extends BaseMapper<RoleMenuPO> {
+public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
 
     List<String> getPermissionList(@Param("userId") Object userId);
 

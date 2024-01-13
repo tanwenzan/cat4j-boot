@@ -5,7 +5,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.zeroable.cat4j.base.dto.LoginDTO;
-import cn.zeroable.cat4j.base.entity.UserPO;
+import cn.zeroable.cat4j.base.po.User;
 import cn.zeroable.cat4j.base.service.AuthService;
 import cn.zeroable.cat4j.base.service.UserService;
 import cn.zeroable.cat4j.core.ApiResult;
@@ -15,12 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 /**
- * 简要说明.
- * <br/> 详细说明.
+ * 认证接口实现类.
  *
  * @author zeroable
  * @version 1/11/24 11:55 PM
- * @see
  * @since 0.0.1
  */
 @Service
@@ -31,11 +29,11 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public ApiResult<SaTokenInfo> login(@Validated LoginDTO loginDTO) {
-        UserPO user = userService.getOne(new QueryWrapper<UserPO>().lambda().in(UserPO::getLoginId, loginDTO.getUserName()));
+        User user = userService.getOne(new QueryWrapper<User>().lambda().in(User::getLoginId, loginDTO.getUserName()));
         if (ObjectUtil.isEmpty(user)) {
             return ApiResult.fail("用户名不存在");
         }
-        String prePassWord = loginDTO.getPassWord();
+        String prePassWord = loginDTO.getPassWord().toUpperCase();
         String salt = user.getSalt();
         String afterPassWord = SecureUtil.md5(prePassWord + salt).toUpperCase();
         if (afterPassWord.equals(user.getLoginPwd())) {

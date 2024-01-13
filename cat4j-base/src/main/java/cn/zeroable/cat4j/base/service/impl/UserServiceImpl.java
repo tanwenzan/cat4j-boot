@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.service.impl;
 
-import cn.zeroable.cat4j.base.entity.UserPO;
+import cn.zeroable.cat4j.base.po.User;
 import cn.zeroable.cat4j.base.mapper.UserMapper;
 import cn.zeroable.cat4j.base.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -18,5 +18,6 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class UserServiceImpl extends ServiceImpl<UserMapper, UserPO> implements UserService {
+public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
 }

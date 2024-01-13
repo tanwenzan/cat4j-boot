@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.base.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cn.zeroable.cat4j.base.entity.RoleMenuPO;
+import cn.zeroable.cat4j.base.po.RoleMenu;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @version : 2023-12-27 21:34:21
  * @since 0.0.1
  */
-public interface RoleMenuService extends IService<RoleMenuPO> {
+public interface RoleMenuService extends IService<RoleMenu> {
 
     List<String> getPermissionList(Object loginId);
 

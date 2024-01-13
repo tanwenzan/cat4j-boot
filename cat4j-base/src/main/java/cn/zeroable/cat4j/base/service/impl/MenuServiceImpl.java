@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.entity.MenuPO;
+import cn.zeroable.cat4j.base.po.Menu;
 import cn.zeroable.cat4j.base.mapper.MenuMapper;
 import cn.zeroable.cat4j.base.service.MenuService;
 
@@ -18,5 +18,5 @@ import cn.zeroable.cat4j.base.service.MenuService;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class MenuServiceImpl extends ServiceImpl<MenuMapper, MenuPO> implements MenuService {
+public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
 }

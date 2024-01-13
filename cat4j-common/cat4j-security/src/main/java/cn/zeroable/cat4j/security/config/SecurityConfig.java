@@ -59,7 +59,7 @@ public class SecurityConfig implements WebMvcConfigurer {
      *
      * @param iSecurityConfigProvider 扩展接口
      * @return java.lang.String[] 不需要登录校验的路径Patterns
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/12 18:50
      */
     private String[] getLoginNotMatch(ISecurityConfigProvider iSecurityConfigProvider) {
@@ -78,7 +78,7 @@ public class SecurityConfig implements WebMvcConfigurer {
      *
      * @param iSecurityConfigProvider 扩展接口
      * @return java.lang.String[] 需要登录校验的路径Patterns
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/12 18:50
      */
     private String[] getLoginPathPatterns(ISecurityConfigProvider iSecurityConfigProvider) {

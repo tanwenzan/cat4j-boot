@@ -1,12 +1,12 @@
-package cn.zeroable.cat4j.base.entity;
+package cn.zeroable.cat4j.base.po;
 
-import cn.zeroable.cat4j.entity.BasePO;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import cn.zeroable.cat4j.entity.BasePO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import com.baomidou.mybatisplus.annotation.TableName;
 import org.apache.logging.log4j.core.config.plugins.validation.constraints.NotBlank;
 
 import java.io.Serializable;
@@ -23,7 +23,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class UserPO extends BasePO implements Serializable, Cloneable {
+public class User extends BasePO implements Serializable, Cloneable {
 
     /**
      * 账号
@@ -88,7 +88,7 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
     private Integer lockFlag;
 
     @Override
-    public UserPO clone() {
-        return (UserPO) super.clone();
+    public User clone() {
+        return (User) super.clone();
     }
 }
