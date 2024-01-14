@@ -1,6 +1,8 @@
 package cn.zeroable.cat4j.base.vo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -13,10 +15,15 @@ import java.util.List;
  * @since 0.0.1
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserRoleVO {
 
     private UserVO user;
 
     private List<RoleVO> roles;
 
+    public static UserRoleVO of(UserVO user, List<RoleVO> roles) {
+        return new UserRoleVO(user, roles);
+    }
 }

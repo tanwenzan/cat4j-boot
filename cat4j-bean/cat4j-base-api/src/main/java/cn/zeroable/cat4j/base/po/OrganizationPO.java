@@ -1,12 +1,12 @@
 package cn.zeroable.cat4j.base.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import cn.zeroable.cat4j.entity.BasePO;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class Organization extends BasePO implements Serializable, Cloneable {
+public class OrganizationPO extends BasePO implements Serializable, Cloneable {
 
     /**
      * 父节点
@@ -44,7 +44,7 @@ public class Organization extends BasePO implements Serializable, Cloneable {
 
 
     @Override
-    public Organization clone() {
-        return (Organization) super.clone();
+    public OrganizationPO clone() {
+        return (OrganizationPO) super.clone();
     }
 }

@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -18,6 +20,8 @@ import java.time.LocalDateTime;
  * @version 12/24/23 10:02 PM
  * @since 0.0.1
  */
+@Getter
+@Setter
 public class BasePO implements Serializable, Cloneable {
 
     //使用自己实现的类型转换
@@ -46,67 +50,6 @@ public class BasePO implements Serializable, Cloneable {
     @TableLogic
     @TableField("hide")
     private Boolean hide;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getReVersion() {
-        return reVersion;
-    }
-
-    public BasePO setReVersion(Integer reVersion) {
-        this.reVersion = reVersion;
-        return this;
-    }
-
-    public Boolean getHide() {
-        return hide;
-    }
-
-    public void setHide(Boolean hide) {
-        this.hide = hide;
-    }
-
-    public Long getCreateBy() {
-        return createBy;
-    }
-
-    public BasePO setCreateBy(Long createBy) {
-        this.createBy = createBy;
-        return this;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public BasePO setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-        return this;
-    }
-
-    public Long getUpdateBy() {
-        return updateBy;
-    }
-
-    public BasePO setUpdateBy(Long updateBy) {
-        this.updateBy = updateBy;
-        return this;
-    }
-
-    public LocalDateTime getUpdateTime() {
-        return updateTime;
-    }
-
-    public BasePO setUpdateTime(LocalDateTime updateTime) {
-        this.updateTime = updateTime;
-        return this;
-    }
 
     @Override
     public BasePO clone() {

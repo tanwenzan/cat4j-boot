@@ -1,12 +1,9 @@
 package cn.zeroable.cat4j.base.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import cn.zeroable.cat4j.entity.BasePO;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -22,13 +19,14 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class Menu extends BasePO implements Serializable, Cloneable {
+@NoArgsConstructor
+public class MenuPO extends BasePO implements Serializable, Cloneable {
 
     /**
      * 父菜单ID
      */
     @TableField("parent_id")
-    private String parentId;
+    private Long parentId;
 
     /**
      * 菜单路径
@@ -91,7 +89,7 @@ public class Menu extends BasePO implements Serializable, Cloneable {
     private String menuConfig;
 
     @Override
-    public Menu clone() {
-        return (Menu) super.clone();
+    public MenuPO clone() {
+        return (MenuPO) super.clone();
     }
 }

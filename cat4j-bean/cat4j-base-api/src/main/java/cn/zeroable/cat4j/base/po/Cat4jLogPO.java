@@ -1,12 +1,12 @@
 package cn.zeroable.cat4j.base.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import cn.zeroable.cat4j.entity.BasePO;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class Cat4jLog extends BasePO implements Serializable, Cloneable {
+public class Cat4jLogPO extends BasePO implements Serializable, Cloneable {
 
     /**
      * 日志类型
@@ -80,7 +80,7 @@ public class Cat4jLog extends BasePO implements Serializable, Cloneable {
 
 
     @Override
-    public Cat4jLog clone() {
-        return (Cat4jLog) super.clone();
+    public Cat4jLogPO clone() {
+        return (Cat4jLogPO) super.clone();
     }
 }

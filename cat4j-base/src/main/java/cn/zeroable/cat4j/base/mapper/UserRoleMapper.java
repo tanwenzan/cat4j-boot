@@ -2,7 +2,7 @@ package cn.zeroable.cat4j.base.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import cn.zeroable.cat4j.base.po.UserRole;
+import cn.zeroable.cat4j.base.entity.UserRole;
 
 import java.util.List;
 
@@ -25,4 +25,5 @@ public interface UserRoleMapper extends BaseMapper<UserRole> {
      * @date 1/12/24 12:55 AM
      */
     List<String> getRoleCodeByUserId(Long userId);
+
 }

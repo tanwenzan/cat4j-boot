@@ -1,14 +1,27 @@
 package cn.zeroable.cat4j.base.service;
 
+import cn.zeroable.cat4j.base.po.MenuPO;
+import cn.zeroable.cat4j.base.vo.RouterInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
-import cn.zeroable.cat4j.base.po.Menu;
 
- /**
- * 菜单表;(cat4j_menu) 表服务接口
- * @author : zeroable
- * @version : 2023-12-27 21:07:21
+import java.util.List;
+
+/**
+ * 菜单Service 接口.
+ *
+ * @author zeroable
+ * @version 1/13/24 4:50 PM
  * @since 0.0.1
  */
-public interface MenuService extends IService<Menu> {
-    
+public interface MenuService extends IService<MenuPO> {
+
+    /**
+     * 获取当前用户的路由信息。
+     *
+     * @param userId 用户id
+     * @return java.util.List<cn.zeroable.cat4j.base.vo.RouterInfo>
+     * @author zeroable
+     * @date 1/13/24 11:13 PM
+     */
+    List<RouterInfo> getRouterByUserId(Long userId);
 }

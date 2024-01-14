@@ -1,20 +1,20 @@
 package cn.zeroable.cat4j.base.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import cn.zeroable.cat4j.base.po.RolePO;
+import cn.zeroable.cat4j.base.service.RoleService;
+import cn.zeroable.cat4j.core.ApiResult;
+import cn.zeroable.cat4j.core.util.ArrayUtil;
 import cn.zeroable.cat4j.core.validation.Add;
 import cn.zeroable.cat4j.core.validation.Update;
-import cn.zeroable.cat4j.core.util.ArrayUtil;
-import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.dto.BaseDeleteDTO;
-import cn.zeroable.cat4j.support.Query;
 import cn.zeroable.cat4j.support.Condition;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import cn.zeroable.cat4j.support.Query;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.po.Role;
-import cn.zeroable.cat4j.base.service.RoleService;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
@@ -42,8 +42,8 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @GetMapping("{id}")
-    public ApiResult<Role> detail(@PathVariable String id) {
-        Role detail = roleService.getById(id);
+    public ApiResult<RolePO> detail(@PathVariable String id) {
+        RolePO detail = roleService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -57,9 +57,9 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @GetMapping
-    public ApiResult<IPage<Role>> pageQuery(Role role, Query query) {
-        QueryWrapper<Role> queryWrapper = Condition.getQueryWrapper(role);
-        IPage<Role> pages = roleService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<RolePO>> pageQuery(RolePO role, Query query) {
+        QueryWrapper<RolePO> queryWrapper = Condition.getQueryWrapper(role);
+        IPage<RolePO> pages = roleService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -72,7 +72,7 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @PostMapping
-    public ApiResult<Role> add(@RequestBody @Validated(Add.class) Role role) {
+    public ApiResult<RolePO> add(@RequestBody @Validated(Add.class) RolePO role) {
         roleService.save(role);
         return ApiResult.ok();
     }
@@ -86,7 +86,7 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @PutMapping
-    public ApiResult<Role> edit(@RequestBody @Validated(Update.class) Role role) {
+    public ApiResult<RolePO> edit(@RequestBody @Validated(Update.class) RolePO role) {
         roleService.updateById(role);
         return ApiResult.ok();
     }

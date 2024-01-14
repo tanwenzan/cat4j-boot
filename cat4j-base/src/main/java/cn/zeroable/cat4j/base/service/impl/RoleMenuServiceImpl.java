@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.po.RoleMenu;
+import cn.zeroable.cat4j.base.entity.RoleMenu;
 import cn.zeroable.cat4j.base.mapper.RoleMenuMapper;
 import cn.zeroable.cat4j.base.service.RoleMenuService;
 

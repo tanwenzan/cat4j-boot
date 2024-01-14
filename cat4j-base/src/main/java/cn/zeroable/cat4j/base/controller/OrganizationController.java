@@ -1,20 +1,21 @@
 package cn.zeroable.cat4j.base.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import cn.zeroable.cat4j.base.entity.Organization;
+import cn.zeroable.cat4j.base.po.OrganizationPO;
+import cn.zeroable.cat4j.base.service.OrganizationService;
+import cn.zeroable.cat4j.core.ApiResult;
+import cn.zeroable.cat4j.core.util.ArrayUtil;
 import cn.zeroable.cat4j.core.validation.Add;
 import cn.zeroable.cat4j.core.validation.Update;
-import cn.zeroable.cat4j.core.util.ArrayUtil;
-import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.dto.BaseDeleteDTO;
-import cn.zeroable.cat4j.support.Query;
 import cn.zeroable.cat4j.support.Condition;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import cn.zeroable.cat4j.support.Query;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.po.Organization;
-import cn.zeroable.cat4j.base.service.OrganizationService;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
@@ -42,8 +43,8 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @GetMapping("{id}")
-    public ApiResult<Organization> detail(@PathVariable String id) {
-        Organization detail = organizationService.getById(id);
+    public ApiResult<OrganizationPO> detail(@PathVariable String id) {
+        OrganizationPO detail = organizationService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -57,9 +58,9 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @GetMapping
-    public ApiResult<IPage<Organization>> pageQuery(Organization organization, Query query) {
-        QueryWrapper<Organization> queryWrapper = Condition.getQueryWrapper(organization);
-        IPage<Organization> pages = organizationService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<OrganizationPO>> pageQuery(OrganizationPO organization, Query query) {
+        QueryWrapper<OrganizationPO> queryWrapper = Condition.getQueryWrapper(organization);
+        IPage<OrganizationPO> pages = organizationService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -72,7 +73,7 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @PostMapping
-    public ApiResult<Organization> add(@RequestBody @Validated(Add.class) Organization organization) {
+    public ApiResult<OrganizationPO> add(@RequestBody @Validated(Add.class) OrganizationPO organization) {
         organizationService.save(organization);
         return ApiResult.ok();
     }
@@ -86,7 +87,7 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @PutMapping
-    public ApiResult<Organization> edit(@RequestBody @Validated(Update.class) Organization organization) {
+    public ApiResult<Organization> edit(@RequestBody @Validated(Update.class) OrganizationPO organization) {
         organizationService.updateById(organization);
         return ApiResult.ok();
     }

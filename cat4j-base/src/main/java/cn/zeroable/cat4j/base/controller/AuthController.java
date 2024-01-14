@@ -3,6 +3,7 @@ package cn.zeroable.cat4j.base.controller;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.zeroable.cat4j.base.dto.LoginDTO;
 import cn.zeroable.cat4j.base.service.AuthService;
+import cn.zeroable.cat4j.base.vo.LoginResult;
 import cn.zeroable.cat4j.core.ApiResult;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -25,7 +26,7 @@ public class AuthController {
     private final AuthService authService;
 
     @RequestMapping("login")
-    public ApiResult<SaTokenInfo> login(@RequestBody @Validated LoginDTO loginDTO) {
+    public ApiResult<LoginResult> login(@RequestBody @Validated LoginDTO loginDTO) {
         return authService.login(loginDTO);
     }
 }

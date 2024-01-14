@@ -1,12 +1,12 @@
 package cn.zeroable.cat4j.base.service.impl;
 
+import cn.zeroable.cat4j.base.mapper.DictItemMapper;
+import cn.zeroable.cat4j.base.po.DictItemPO;
+import cn.zeroable.cat4j.base.service.DictItemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.po.DictItem;
-import cn.zeroable.cat4j.base.mapper.DictItemMapper;
-import cn.zeroable.cat4j.base.service.DictItemService;
 /**
  * 字典明细;(cat4j_dict_item)表服务实现类
  *
@@ -17,5 +17,5 @@ import cn.zeroable.cat4j.base.service.DictItemService;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItem> implements DictItemService {
+public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItemPO> implements DictItemService {
 }

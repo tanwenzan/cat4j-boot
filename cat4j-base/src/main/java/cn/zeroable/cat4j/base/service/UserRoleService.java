@@ -2,7 +2,7 @@ package cn.zeroable.cat4j.base.service;
 
 import cn.zeroable.cat4j.base.vo.UserRoleVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import cn.zeroable.cat4j.base.po.UserRole;
+import cn.zeroable.cat4j.base.entity.UserRole;
 
 import java.util.List;
 

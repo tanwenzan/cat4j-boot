@@ -1,17 +1,16 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import cn.zeroable.cat4j.entity.BasePO;
+import cn.zeroable.cat4j.entity.BaseEntity;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
 /**
- * 字典表;
+ * 字典POJO;
  *
  * @author : zeroable
  * @version : 2023-12-27 21:35:21
@@ -22,24 +21,21 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class Dict extends BasePO implements Serializable, Cloneable {
+public class Dict extends BaseEntity implements Serializable, Cloneable {
 
     /**
      * 标识
      */
-    @TableField("dict_key")
     private String dictKey;
 
     /**
      * 描述
      */
-    @TableField("description")
     private String description;
 
     /**
      * 是否是系统内置
      */
-    @TableField("sys_flag")
     private Boolean sysFlag;
 
 

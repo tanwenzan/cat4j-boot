@@ -1,10 +1,13 @@
 package cn.zeroable.cat4j.base.service.impl;
 
-import cn.zeroable.cat4j.base.po.UserRole;
+import cn.zeroable.cat4j.base.entity.UserRole;
 import cn.zeroable.cat4j.base.mapper.UserRoleMapper;
+import cn.zeroable.cat4j.base.service.RoleService;
 import cn.zeroable.cat4j.base.service.UserRoleService;
 import cn.zeroable.cat4j.base.service.UserService;
+import cn.zeroable.cat4j.base.vo.RoleVO;
 import cn.zeroable.cat4j.base.vo.UserRoleVO;
+import cn.zeroable.cat4j.base.vo.UserVO;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +30,8 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> i
 
     private final UserService userService;
 
+    private final RoleService roleService;
+
     @Override
     @Cacheable(cacheNames = "RoleCodes", key = "'roleCode_'+#userId")
     public List<String> getRoleCodeByUserId(Long userId) {
@@ -35,7 +40,8 @@ public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> i
 
     @Override
     public UserRoleVO getUserRoleInfoByUserId(Long userId) {
-
-        return null;
+        UserVO user = userService.getUserById(userId);
+        List<RoleVO> roles = roleService.getRolesByUserId(userId);
+        return UserRoleVO.of(user, roles);
     }
 }

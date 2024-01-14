@@ -1,12 +1,12 @@
 package cn.zeroable.cat4j.base.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import cn.zeroable.cat4j.entity.BasePO;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 
@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class OauthClientDetails extends BasePO implements Serializable, Cloneable {
+public class OauthClientDetailsPO extends BasePO implements Serializable, Cloneable {
 
 
     /**
@@ -92,7 +92,7 @@ public class OauthClientDetails extends BasePO implements Serializable, Cloneabl
     private Boolean autoApprove;
 
     @Override
-    public OauthClientDetails clone() {
-        return (OauthClientDetails) super.clone();
+    public OauthClientDetailsPO clone() {
+        return (OauthClientDetailsPO) super.clone();
     }
 }

@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.base.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import cn.zeroable.cat4j.base.po.RoleMenu;
+import cn.zeroable.cat4j.base.entity.RoleMenu;
 
 import java.util.List;
 

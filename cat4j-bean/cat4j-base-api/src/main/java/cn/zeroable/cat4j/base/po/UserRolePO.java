@@ -1,11 +1,11 @@
 package cn.zeroable.cat4j.base.po;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.io.Serializable;
 
@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class UserRole implements Serializable, Cloneable {
+public class UserRolePO implements Serializable, Cloneable {
 
     @TableId("user_id")
     private Long userId;
@@ -29,9 +29,9 @@ public class UserRole implements Serializable, Cloneable {
     private Long roleId;
 
     @Override
-    public UserRole clone() {
+    public UserRolePO clone() {
         try {
-            return (UserRole) super.clone();
+            return (UserRolePO) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }

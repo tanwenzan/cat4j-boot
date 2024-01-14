@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.po.OauthClientDetails;
+import cn.zeroable.cat4j.base.entity.OauthClientDetails;
 import cn.zeroable.cat4j.base.mapper.OauthClientDetailsMapper;
 import cn.zeroable.cat4j.base.service.OauthClientDetailsService;
 /**

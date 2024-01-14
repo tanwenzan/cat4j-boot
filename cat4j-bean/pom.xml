@@ -8,9 +8,13 @@
         <artifactId>cat4j-boot</artifactId>
         <version>0.0.1</version>
     </parent>
-
+    <packaging>pom</packaging>
     <artifactId>cat4j-bean</artifactId>
 
+    <modules>
+        <module>cat4j-base-api</module>
+        <module>cat4j-bean-common</module>
+    </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

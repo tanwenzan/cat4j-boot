@@ -3,12 +3,12 @@ spring:
     type: redis
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: ENC(ni2p4AWoXBxxw6ZdagKFnFurkNIwbNAdroOiVb/Yma92uwrpr4zfbQFDCFXE2chP5GNOc7oLN1VXGKVOT1QEY84cVw9PulvomntjBqF3err3yn+hjUiYSdge01hxQ0g0Zd3mpukzedM2faAO4wQmxle1Ir7ltifDDhlA67a23SZqtUp8oBwewjVGccaiernGYqiGFoBljypINiEbCcrXMQ==)
-#    username: ENC(JVNZz2OxsxfvsQPRMJMgpcyGhFfN8VmEk05tviV33EE2mtMQ57BWmxiPtluhNkLX)
-#    password: ENC(CYo8RiOR0+NszQJtVLFyR0dqoI9fVyGjEHIlLy3VGM8X98ahVHj5l1WhbubNf9D0)
-    url: ENC(N56kOIPLh4b83vHP3OaNNJ0MOza88UTaHWgjgo/JYVlHQhpUKypQZmA/axBFkgr7K4zKjhaCpZFiLlWnoQCYLFuFh9uCO/WZZTlHYn8boIOBPougbwDe9rk6gsgmXUmHWkr8dWL73yDAEXX3k/HPp46T2007pZC3EbUJHSiehKXxOAfmEwuoFG4GaFZd6ySKiz3tX9ua/RzH4e6SQ5SSWg==)
-    username: ENC(J132ZzOCyDODOtumOyJIHBScakzXwhV8ENt74gvYu1rnmR6SpKCRvps0czEwPkWR)
-    password: ENC(++FZHFS1Ad6tJ/VfJ6srAfq8jj7biiuoOGW6M/fJKFH8Fupaj0ZWI7PAln/jKuCb)
+    url: ENC(ni2p4AWoXBxxw6ZdagKFnFurkNIwbNAdroOiVb/Yma92uwrpr4zfbQFDCFXE2chP5GNOc7oLN1VXGKVOT1QEY84cVw9PulvomntjBqF3err3yn+hjUiYSdge01hxQ0g0Zd3mpukzedM2faAO4wQmxle1Ir7ltifDDhlA67a23SZqtUp8oBwewjVGccaiernGYqiGFoBljypINiEbCcrXMQ==)
+    username: ENC(JVNZz2OxsxfvsQPRMJMgpcyGhFfN8VmEk05tviV33EE2mtMQ57BWmxiPtluhNkLX)
+    password: ENC(CYo8RiOR0+NszQJtVLFyR0dqoI9fVyGjEHIlLy3VGM8X98ahVHj5l1WhbubNf9D0)
+#    url: ENC(N56kOIPLh4b83vHP3OaNNJ0MOza88UTaHWgjgo/JYVlHQhpUKypQZmA/axBFkgr7K4zKjhaCpZFiLlWnoQCYLFuFh9uCO/WZZTlHYn8boIOBPougbwDe9rk6gsgmXUmHWkr8dWL73yDAEXX3k/HPp46T2007pZC3EbUJHSiehKXxOAfmEwuoFG4GaFZd6ySKiz3tX9ua/RzH4e6SQ5SSWg==)
+#    username: ENC(J132ZzOCyDODOtumOyJIHBScakzXwhV8ENt74gvYu1rnmR6SpKCRvps0czEwPkWR)
+#    password: ENC(++FZHFS1Ad6tJ/VfJ6srAfq8jj7biiuoOGW6M/fJKFH8Fupaj0ZWI7PAln/jKuCb)
     type: com.alibaba.druid.pool.DruidDataSource
     # druid连接池设置
     druid:
@@ -92,3 +92,6 @@ sa-token:
   # 操作频率 2个小时
   active-timeout: 7200
   jwt-secret-key: asdasdasifhueuiwyurfewbfjsdafjk
+  is-read-cookie: false
+  is-read-header: true
+  is-read-body: false

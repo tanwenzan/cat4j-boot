@@ -1,5 +1,6 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
+import cn.zeroable.cat4j.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import cn.zeroable.cat4j.entity.BasePO;
 import lombok.AllArgsConstructor;
@@ -22,53 +23,45 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class DictItem extends BasePO implements Serializable, Cloneable {
+public class DictItem extends BaseEntity implements Serializable, Cloneable {
     /**
      * 字典ID
      */
-    @TableField("dict_id")
     private String dictId;
 
     /**
      * 字典标识
      */
-    @TableField("dict_key")
     private String dictKey;
 
     /**
      * 值
      */
-    @TableField("value")
     private String value;
 
     /**
      * 标签
      */
-    @TableField("label")
     private String label;
 
     /**
      * 字典类型
      */
-    @TableField("type")
     private String type;
 
     /**
      * 描述
      */
-    @TableField("description")
     private String description;
 
     /**
      * 排序（升序）
      */
-    @TableField("sort_order")
     private Integer sortOrder;
 
     /**
      * 备注
      */
-    @TableField("remark")
     private String remark;
 
     @Override
