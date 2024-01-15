@@ -24,4 +24,6 @@ public interface AuthService {
      */
 
     ApiResult<LoginResult> login(LoginDTO loginDTO);
+
+    ApiResult<String> logOut();
 }

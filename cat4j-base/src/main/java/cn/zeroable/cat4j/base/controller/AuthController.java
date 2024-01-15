@@ -29,4 +29,9 @@ public class AuthController {
     public ApiResult<LoginResult> login(@RequestBody @Validated LoginDTO loginDTO) {
         return authService.login(loginDTO);
     }
+
+    @RequestMapping("loginOut")
+    public ApiResult<String> loginOut() {
+        return authService.logOut();
+    }
 }

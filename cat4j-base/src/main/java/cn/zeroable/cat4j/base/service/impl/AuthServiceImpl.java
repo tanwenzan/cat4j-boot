@@ -12,6 +12,7 @@ import cn.zeroable.cat4j.base.service.UserRoleService;
 import cn.zeroable.cat4j.base.service.UserService;
 import cn.zeroable.cat4j.base.vo.LoginResult;
 import cn.zeroable.cat4j.core.ApiResult;
+import cn.zeroable.cat4j.core.validation.Api;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -66,5 +67,11 @@ public class AuthServiceImpl implements AuthService {
             }
         }
         return ApiResult.fail(loginResult.getMessage());
+    }
+
+    @Override
+    public ApiResult<String> logOut() {
+        StpUtil.logout();
+        return ApiResult.ok();
     }
 }
