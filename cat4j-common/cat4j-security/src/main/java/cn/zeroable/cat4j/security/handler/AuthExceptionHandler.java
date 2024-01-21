@@ -32,7 +32,6 @@ public class AuthExceptionHandler {
      * @date 1/6/24 12:15 AM
      */
     @ExceptionHandler(NotPermissionException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
     public ApiResult<String> notPermissionException(NotPermissionException e) {
         return ApiResult.fail(HttpStatus.FORBIDDEN.value(), e.getMessage());
     }
@@ -46,7 +45,6 @@ public class AuthExceptionHandler {
      * @date 1/6/24 12:15 AM
      */
     @ExceptionHandler(NotLoginException.class)
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ApiResult<String> notLoginException(NotLoginException e) {
         ApiResult<String> fail = ApiResult.fail(HttpStatus.UNAUTHORIZED.value(), e.getMessage());
         fail.setData(e.getType());

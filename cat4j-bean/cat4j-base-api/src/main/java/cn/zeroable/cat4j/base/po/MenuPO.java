@@ -35,6 +35,12 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     private String treePath;
 
     /**
+     * 菜单编码
+     */
+    @TableField("code")
+    private String code;
+
+    /**
      * 菜单名称
      */
     @TableField("name")

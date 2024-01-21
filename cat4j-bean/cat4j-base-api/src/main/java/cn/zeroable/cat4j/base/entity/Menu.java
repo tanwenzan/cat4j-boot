@@ -46,6 +46,11 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
     private String treePath;
 
     /**
+     * 菜单编码
+     */
+    private String code;
+
+    /**
      * 菜单名称
      */
     private String name;
@@ -100,11 +105,67 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
      */
     public static List<RouterInfo> buildRouterInfos(List<MenuPO> menus) {
         List<MenuVO> menuViewObjects = buildViewObjects(menus);
-        List<RouterInfo> result = new ArrayList<>(menuViewObjects.size());
-        for (MenuVO menuViewObject : menuViewObjects) {
-            result.add(buildRouterInfo(menuViewObject, null));
+        List<RouterInfo> result = convertRouterInfos(menuViewObjects);
+        for (RouterInfo routerInfo : result) {
+            processRouterInfo(routerInfo, null);
         }
         return result;
+    }
+
+    private static void processRouterInfo(RouterInfo routerInfo, RouterInfo parent) {
+        if (parent == null) {
+            routerInfo.setComponent("#");
+        } else {
+            // 多级菜单处理
+            routerInfo.setComponent("##");
+        }
+
+    }
+
+    private static List<RouterInfo> convertRouterInfos(List<MenuVO> menuViewObjects) {
+        if (ObjectUtil.isEmpty(menuViewObjects)) {
+            return new ArrayList<>();
+        }
+        List<RouterInfo> result = new ArrayList<>(menuViewObjects.size());
+        for (MenuVO menuViewObject : menuViewObjects) {
+            result.add(convertRouterInfo(menuViewObject));
+        }
+        return result;
+    }
+
+    private static RouterInfo convertRouterInfo(MenuVO menuViewObject) {
+        RouterInfo routerInfo = new RouterInfo();
+        String code = menuViewObject.getCode();
+        routerInfo.setName(code);
+        routerInfo.setPath("/" + code);
+        RouterMetaInfo routerMetaInfo = new RouterMetaInfo();
+        routerInfo.setMeta(routerMetaInfo);
+        routerMetaInfo.setIcon(menuViewObject.getIcon());
+        routerMetaInfo.setTitle(menuViewObject.getName());
+        routerInfo.setComponent(menuViewObject.getPath());
+//        routerMetaInfo.setBreadcrumb(true);
+//        routerMetaInfo.setAlwaysShow(false);
+//        routerMetaInfo.setNoCache(false);
+//        routerMetaInfo.setHidden(false);
+//        routerMetaInfo.setAffix(false);
+        List<MenuVO> childrenList = menuViewObject.getChildren();
+        List<String> permission = new ArrayList<>();
+        if (ObjectUtil.isNotEmpty(childrenList)) {
+            List<RouterInfo> childRouters = new ArrayList<>();
+            for (MenuVO menuVO : childrenList) {
+                if (MENU_TYPE_BUTTON.equals(menuVO.getType())) {
+                    permission.add(menuVO.getPermission());
+                } else {
+                    childRouters.add(convertRouterInfo(menuVO));
+                }
+            }
+            routerInfo.setChildren(childRouters);
+        }
+        if (ObjectUtil.isNotEmpty(menuViewObject.getPermission())) {
+            permission.add(menuViewObject.getPermission());
+        }
+        routerMetaInfo.setPermission(permission);
+        return routerInfo;
     }
 
     private static RouterInfo buildRouterInfo(MenuVO menuViewObject, RouterInfo parent) {
@@ -114,12 +175,12 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
         RouterMetaInfo routerMetaInfo = new RouterMetaInfo();
         routerInfo.setMeta(routerMetaInfo);
         routerMetaInfo.setIcon(menuViewObject.getIcon());
-        routerMetaInfo.setNoCache(false);
-        routerMetaInfo.setHidden(false);
-        routerMetaInfo.setAffix(false);
+//        routerMetaInfo.setNoCache(false);
+//        routerMetaInfo.setHidden(false);
+//        routerMetaInfo.setAffix(false);
         routerMetaInfo.setTitle(menuViewObject.getName());
-        routerMetaInfo.setBreadcrumb(true);
-        routerMetaInfo.setAlwaysShow(false);
+//        routerMetaInfo.setBreadcrumb(true);
+//        routerMetaInfo.setAlwaysShow(false);
         List<MenuVO> childrenList = menuViewObject.getChildren();
         List<String> permission = new ArrayList<>();
         if (ObjectUtil.isNotEmpty(childrenList)) {

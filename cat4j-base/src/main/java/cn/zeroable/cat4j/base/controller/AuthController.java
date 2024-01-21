@@ -7,6 +7,7 @@ import cn.zeroable.cat4j.base.vo.LoginResult;
 import cn.zeroable.cat4j.core.ApiResult;
 import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class AuthController {
         return authService.login(loginDTO);
     }
 
-    @RequestMapping("loginOut")
+    @PostMapping("loginOut")
     public ApiResult<String> loginOut() {
         return authService.logOut();
     }

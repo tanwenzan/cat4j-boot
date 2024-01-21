@@ -26,6 +26,7 @@ import java.util.List;
 public class SecurityConfig implements WebMvcConfigurer {
 
     private static final String LOGIN_PATH = "/auth/login";
+    private static final String LOGOUT_PATH = "/auth/loginOut";
 
     private static final List<String> EXCLUDE_PATH_PATTERNS = new ArrayList<>();
 

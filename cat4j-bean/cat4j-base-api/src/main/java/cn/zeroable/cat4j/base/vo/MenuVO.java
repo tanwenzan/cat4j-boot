@@ -30,6 +30,11 @@ public class MenuVO extends BaseEntity {
     private String treePath;
 
     /**
+     * 菜单编码
+     */
+    private String code;
+
+    /**
      * 菜单名称
      */
     private String name;
