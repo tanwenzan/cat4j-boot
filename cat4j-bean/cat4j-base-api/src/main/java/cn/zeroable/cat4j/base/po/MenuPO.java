@@ -62,7 +62,7 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
      * 图标
      */
     @TableField("icon")
-    private String con;
+    private String icon;
 
     /**
      * 排序值

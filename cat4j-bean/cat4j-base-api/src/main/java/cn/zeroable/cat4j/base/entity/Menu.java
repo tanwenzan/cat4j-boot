@@ -113,13 +113,25 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
     }
 
     private static void processRouterInfo(RouterInfo routerInfo, RouterInfo parent) {
+        boolean hasChildren = ObjectUtil.isNotEmpty(routerInfo.getChildren());
+        String redirect = routerInfo.getPath();
+        // 说明是顶级菜单
         if (parent == null) {
             routerInfo.setComponent("#");
         } else {
+            redirect = parent.getPath() + "/" + redirect;
+            parent.setRedirect(redirect);
             // 多级菜单处理
-            routerInfo.setComponent("##");
+            if (hasChildren) {
+                routerInfo.setComponent("##");
+            }
         }
+        if (hasChildren) {
 
+            for (RouterInfo child : routerInfo.getChildren()) {
+                processRouterInfo(child, routerInfo);
+            }
+        }
     }
 
     private static List<RouterInfo> convertRouterInfos(List<MenuVO> menuViewObjects) {
@@ -128,16 +140,29 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
         }
         List<RouterInfo> result = new ArrayList<>(menuViewObjects.size());
         for (MenuVO menuViewObject : menuViewObjects) {
-            result.add(convertRouterInfo(menuViewObject));
+            result.add(convertRouterInfo(menuViewObject, true));
         }
         return result;
     }
 
-    private static RouterInfo convertRouterInfo(MenuVO menuViewObject) {
+    /**
+     * 将 {@code menuVO} 转化为  {@code RouterInfo}。
+     *
+     * @param menuViewObject menuVO
+     * @param isRoot         是否是跟节点
+     * @return cn.zeroable.cat4j.base.vo.RouterInfo
+     * @author tanwenzan
+     * @date 2024/1/26 11:16
+     */
+    private static RouterInfo convertRouterInfo(MenuVO menuViewObject, boolean isRoot) {
         RouterInfo routerInfo = new RouterInfo();
         String code = menuViewObject.getCode();
         routerInfo.setName(code);
-        routerInfo.setPath("/" + code);
+        String path = code;
+        if (isRoot) {
+            path = "/" + code;
+        }
+        routerInfo.setPath(path);
         RouterMetaInfo routerMetaInfo = new RouterMetaInfo();
         routerInfo.setMeta(routerMetaInfo);
         routerMetaInfo.setIcon(menuViewObject.getIcon());
@@ -156,7 +181,8 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
                 if (MENU_TYPE_BUTTON.equals(menuVO.getType())) {
                     permission.add(menuVO.getPermission());
                 } else {
-                    childRouters.add(convertRouterInfo(menuVO));
+                    // 递归处理子节点信息
+                    childRouters.add(convertRouterInfo(menuVO, false));
                 }
             }
             routerInfo.setChildren(childRouters);
@@ -168,79 +194,14 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
         return routerInfo;
     }
 
-    private static RouterInfo buildRouterInfo(MenuVO menuViewObject, RouterInfo parent) {
-        RouterInfo routerInfo = new RouterInfo();
-        routerInfo.setName(menuViewObject.getName());
-        routerInfo.setPath(menuViewObject.getPath());
-        RouterMetaInfo routerMetaInfo = new RouterMetaInfo();
-        routerInfo.setMeta(routerMetaInfo);
-        routerMetaInfo.setIcon(menuViewObject.getIcon());
-//        routerMetaInfo.setNoCache(false);
-//        routerMetaInfo.setHidden(false);
-//        routerMetaInfo.setAffix(false);
-        routerMetaInfo.setTitle(menuViewObject.getName());
-//        routerMetaInfo.setBreadcrumb(true);
-//        routerMetaInfo.setAlwaysShow(false);
-        List<MenuVO> childrenList = menuViewObject.getChildren();
-        List<String> permission = new ArrayList<>();
-        if (ObjectUtil.isNotEmpty(childrenList)) {
-            List<RouterInfo> childRouters = new ArrayList<>();
-            for (MenuVO menuVO : childrenList) {
-                if (MENU_TYPE_BUTTON.equals(menuVO.getType())) {
-                    permission.add(menuVO.getPermission());
-                } else {
-                    childRouters.add(buildRouterInfo(menuVO, routerInfo));
-                }
-            }
-            routerInfo.setChildren(childRouters);
-        }
-        if (ObjectUtil.isNotEmpty(menuViewObject.getPermission())) {
-            permission.add(menuViewObject.getPermission());
-        }
-        routerMetaInfo.setPermission(permission);
-        if (parent == null) {
-            routerInfo.setComponent("#");
-        } else {
-            // 多级菜单处理
-            routerInfo.setComponent("##");
-        }
-        if (ObjectUtil.isEmpty(routerInfo.getChildren())) {
-            routerInfo.setComponent(menuViewObject.getPath());
-        }
-        String redirect = routerInfo.getRedirect();
-        if (ObjectUtil.isEmpty(redirect)) {
-            redirect = routerInfo.getPath();
-        }
-        if (parent != null) {
-            redirect = parent.getPath() + redirect;
-            parent.setRedirect(redirect);
-            routerInfo.setPath(parent.getPath() + routerInfo.getPath());
-            routerInfo.setComponent(routerInfo.getPath());
-        }
-        routerInfo.setRedirect(redirect);
-        // 设置重定向地址
-        if (parent == null) {
-            setChildRedirect(routerInfo.getChildren(), redirect);
-        }
-        return routerInfo;
-    }
-
-    private static void setChildRedirect(List<RouterInfo> routerInfos, String redirect) {
-        if (ObjectUtil.isEmpty(routerInfos)) {
-            return;
-        }
-        for (RouterInfo child : routerInfos) {
-            List<RouterInfo> children = child.getChildren();
-            // 为空就不需要填充了
-            child.setRedirect("");
-            if (ObjectUtil.isNotEmpty(children)) {
-                child.setRedirect(redirect);
-                setChildRedirect(children, redirect);
-            }
-        }
-    }
-
-
+    /**
+     * 构建 {@code MenuVO}。
+     *
+     * @param menus MenuPOList
+     * @return java.util.List<cn.zeroable.cat4j.base.vo.MenuVO>
+     * @author tanwenzan
+     * @date 2024/1/26 11:15
+     */
     public static List<MenuVO> buildViewObjects(List<MenuPO> menus) {
         List<MenuVO> result = new ArrayList<>();
         if (ObjectUtil.isEmpty(menus)) {
@@ -283,6 +244,14 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
     }
 
 
+    /**
+     * 将 {@code List<MenuPO>} 转化为 {@code List<MenuVO>}。
+     *
+     * @param menus MenuPOList
+     * @return java.util.List<cn.zeroable.cat4j.base.vo.MenuVO>
+     * @author tanwenzan
+     * @date 2024/1/26 11:08
+     */
     private static List<MenuVO> toViewObjects(List<MenuPO> menus) {
         if (ObjectUtil.isEmpty(menus)) {
             return new ArrayList<>();

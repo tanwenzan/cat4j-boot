@@ -71,7 +71,9 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public ApiResult<String> logOut() {
-        StpUtil.logout();
+        if (StpUtil.isLogin()) {
+            StpUtil.logout();
+        }
         return ApiResult.ok();
     }
 }
