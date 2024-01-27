@@ -95,3 +95,5 @@ sa-token:
   is-read-cookie: false
   is-read-header: true
   is-read-body: false
+  encryptor:
+    password: MHXJHx94e433poAQ
