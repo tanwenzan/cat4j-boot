@@ -1,1 +1,0 @@
-INSERT INTO cat4j_base.cat4j_role (id, role_name, role_code, role_desc, create_by, create_time, update_by, update_time, re_version, hide) VALUES (3932521684953091, '超级管理员', 'admin', '超级管理员 拥有所有权限，开发接口与联调时禁用', 3904233767069696, '2024-01-11 16:27:56', null, null, 0, 0);
