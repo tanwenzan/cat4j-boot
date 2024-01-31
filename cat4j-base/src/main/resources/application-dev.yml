@@ -67,7 +67,6 @@ logging:
     com:
       redisCache: debug
     root: debug
-
 mybatis-plus:
   dbType: mysql
   mapper-locations: classpath:mapper/**/**.xml
@@ -95,5 +94,6 @@ sa-token:
   is-read-cookie: false
   is-read-header: true
   is-read-body: false
+jasypt:
   encryptor:
     password: MHXJHx94e433poAQ

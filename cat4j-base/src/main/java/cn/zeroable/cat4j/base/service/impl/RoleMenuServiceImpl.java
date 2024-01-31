@@ -1,13 +1,13 @@
 package cn.zeroable.cat4j.base.service.impl;
 
+import cn.zeroable.cat4j.base.entity.RoleMenuEntity;
+import cn.zeroable.cat4j.base.mapper.RoleMenuMapper;
+import cn.zeroable.cat4j.base.service.RoleMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.entity.RoleMenu;
-import cn.zeroable.cat4j.base.mapper.RoleMenuMapper;
-import cn.zeroable.cat4j.base.service.RoleMenuService;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class RoleMenuServiceImpl extends ServiceImpl<RoleMenuMapper, RoleMenu> implements RoleMenuService {
+public class RoleMenuServiceImpl extends ServiceImpl<RoleMenuMapper, RoleMenuEntity> implements RoleMenuService {
     @Override
     @Cacheable(cacheNames = "PermissionList", key = "'permission_'+#loginId")
     public List<String> getPermissionList(Object loginId) {

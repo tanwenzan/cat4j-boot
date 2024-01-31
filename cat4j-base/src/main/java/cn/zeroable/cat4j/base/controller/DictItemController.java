@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.controller;
 
-import cn.zeroable.cat4j.base.po.DictItemPO;
+import cn.zeroable.cat4j.base.entity.DictItemEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import cn.zeroable.cat4j.core.validation.Add;
@@ -42,52 +42,52 @@ public class DictItemController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping("{id}")
-    public ApiResult<DictItemPO> detail(@PathVariable String id) {
-        DictItemPO detail = dictItemService.getById(id);
+    public ApiResult<DictItemEntity> detail(@PathVariable String id) {
+        DictItemEntity detail = dictItemService.getById(id);
         return ApiResult.ok(detail);
     }
 
     /**
      * 分页查询
      *
-     * @param DictItemPO 筛选条件
+     * @param DictItemEntity 筛选条件
      * @param query    分页对象
      * @return ApiResult<IPage < DictItemPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictItemPO>> pageQuery(DictItemPO DictItemPO, Query query) {
-        QueryWrapper<DictItemPO> queryWrapper = Condition.getQueryWrapper(DictItemPO);
-        IPage<DictItemPO> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<DictItemEntity>> pageQuery(DictItemEntity DictItemEntity, Query query) {
+        QueryWrapper<DictItemEntity> queryWrapper = Condition.getQueryWrapper(DictItemEntity);
+        IPage<DictItemEntity> pages = dictItemService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
     /**
      * 新增数据
      *
-     * @param DictItemPO 实例对象
+     * @param DictItemEntity 实例对象
      * @return ApiResult<DictItemPO> 实例对象
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @PostMapping
-    public ApiResult<DictItemPO> add(@RequestBody @Validated(Add.class) DictItemPO DictItemPO) {
-        dictItemService.save(DictItemPO);
+    public ApiResult<DictItemEntity> add(@RequestBody @Validated(Add.class) DictItemEntity DictItemEntity) {
+        dictItemService.save(DictItemEntity);
         return ApiResult.ok();
     }
 
     /**
      * 更新数据
      *
-     * @param DictItemPO 实例对象
+     * @param DictItemEntity 实例对象
      * @return ApiResult<DictItemPO> 实例对象
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @PutMapping
-    public ApiResult<DictItemPO> edit(@RequestBody @Validated(Update.class) DictItemPO DictItemPO) {
-        dictItemService.updateById(DictItemPO);
+    public ApiResult<DictItemEntity> edit(@RequestBody @Validated(Update.class) DictItemEntity DictItemEntity) {
+        dictItemService.updateById(DictItemEntity);
         return ApiResult.ok();
     }
 

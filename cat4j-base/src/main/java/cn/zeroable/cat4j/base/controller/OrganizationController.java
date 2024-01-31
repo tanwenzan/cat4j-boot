@@ -1,7 +1,6 @@
 package cn.zeroable.cat4j.base.controller;
 
-import cn.zeroable.cat4j.base.entity.Organization;
-import cn.zeroable.cat4j.base.po.OrganizationPO;
+import cn.zeroable.cat4j.base.entity.OrganizationEntity;
 import cn.zeroable.cat4j.base.service.OrganizationService;
 import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.core.util.ArrayUtil;
@@ -10,6 +9,7 @@ import cn.zeroable.cat4j.core.validation.Update;
 import cn.zeroable.cat4j.dto.BaseDeleteDTO;
 import cn.zeroable.cat4j.support.Condition;
 import cn.zeroable.cat4j.support.Query;
+import com.alibaba.druid.sql.dialect.oracle.ast.stmt.OracleCreateTableStatement;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import lombok.AllArgsConstructor;
@@ -43,8 +43,8 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @GetMapping("{id}")
-    public ApiResult<OrganizationPO> detail(@PathVariable String id) {
-        OrganizationPO detail = organizationService.getById(id);
+    public ApiResult<OrganizationEntity> detail(@PathVariable String id) {
+        OrganizationEntity detail = organizationService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -58,9 +58,9 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @GetMapping
-    public ApiResult<IPage<OrganizationPO>> pageQuery(OrganizationPO organization, Query query) {
-        QueryWrapper<OrganizationPO> queryWrapper = Condition.getQueryWrapper(organization);
-        IPage<OrganizationPO> pages = organizationService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<OrganizationEntity>> pageQuery(OrganizationEntity organization, Query query) {
+        QueryWrapper<OrganizationEntity> queryWrapper = Condition.getQueryWrapper(organization);
+        IPage<OrganizationEntity> pages = organizationService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -73,7 +73,7 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @PostMapping
-    public ApiResult<OrganizationPO> add(@RequestBody @Validated(Add.class) OrganizationPO organization) {
+    public ApiResult<OrganizationEntity> add(@RequestBody @Validated(Add.class) OrganizationEntity organization) {
         organizationService.save(organization);
         return ApiResult.ok();
     }
@@ -87,7 +87,7 @@ public class OrganizationController {
      * @date 2023-12-27 21:32:21
      */
     @PutMapping
-    public ApiResult<Organization> edit(@RequestBody @Validated(Update.class) OrganizationPO organization) {
+    public ApiResult<OracleCreateTableStatement.Organization> edit(@RequestBody @Validated(Update.class) OrganizationEntity organization) {
         organizationService.updateById(organization);
         return ApiResult.ok();
     }

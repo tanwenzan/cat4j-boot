@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="cn.zeroable.cat4j.base.mapper.MenuMapper">
-    <select id="getMenusByUserId" resultType="cn.zeroable.cat4j.base.po.MenuPO">
+    <select id="getMenusByUserId" resultType="cn.zeroable.cat4j.base.entity.MenuEntity">
         select *
         from cat4j_menu
         where id in

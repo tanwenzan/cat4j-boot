@@ -1,8 +1,8 @@
 package cn.zeroable.cat4j.base.service;
 
+import cn.zeroable.cat4j.base.entity.UserRoleEntity;
 import cn.zeroable.cat4j.base.vo.UserRoleVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import cn.zeroable.cat4j.base.entity.UserRole;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * @version : 2024-01-12 000:48:00
  * @since 0.0.1
  */
-public interface UserRoleService extends IService<UserRole> {
+public interface UserRoleService extends IService<UserRoleEntity> {
 
     List<String> getRoleCodeByUserId(Long userId);
 

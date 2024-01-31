@@ -4,15 +4,13 @@ import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zeroable.cat4j.base.dto.LoginDTO;
-import cn.zeroable.cat4j.base.entity.User;
-import cn.zeroable.cat4j.base.po.UserPO;
+import cn.zeroable.cat4j.base.entity.UserEntity;
 import cn.zeroable.cat4j.base.service.AuthService;
 import cn.zeroable.cat4j.base.service.RoleMenuService;
 import cn.zeroable.cat4j.base.service.UserRoleService;
 import cn.zeroable.cat4j.base.service.UserService;
 import cn.zeroable.cat4j.base.vo.LoginResult;
 import cn.zeroable.cat4j.core.ApiResult;
-import cn.zeroable.cat4j.core.validation.Api;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,12 +40,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public ApiResult<LoginResult> login(@Validated LoginDTO loginDTO) {
-        UserPO user = userService.getOne(new QueryWrapper<UserPO>().lambda()
-                .eq(UserPO::getLoginId, loginDTO.getUserName()));
+        UserEntity user = userService.getOne(new QueryWrapper<UserEntity>().lambda()
+                .eq(UserEntity::getLoginId, loginDTO.getUserName()));
         if (ObjectUtil.isEmpty(user)) {
             return ApiResult.fail("用户名不存在");
         }
-        ApiResult<String> loginResult = User.byPersistentObject(user).validatedLogin(loginDTO);
+        ApiResult<String> loginResult = user.validatedLogin(loginDTO);
         if (loginResult.getSuccess()) {
             Long userId = user.getId();
             StpUtil.login(userId);

@@ -1,4 +1,4 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class UserRolePO implements Serializable, Cloneable {
+public class UserRoleEntity implements Serializable, Cloneable {
 
     @TableId("user_id")
     private Long userId;
@@ -29,9 +29,9 @@ public class UserRolePO implements Serializable, Cloneable {
     private Long roleId;
 
     @Override
-    public UserRolePO clone() {
+    public UserRoleEntity clone() {
         try {
-            return (UserRolePO) super.clone();
+            return (UserRoleEntity) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }

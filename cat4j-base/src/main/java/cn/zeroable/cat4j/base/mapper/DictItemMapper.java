@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.mapper;
 
-import cn.zeroable.cat4j.base.po.DictItemPO;
+import cn.zeroable.cat4j.base.entity.DictItemEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 0.0.1
  */
 @Mapper
-public interface DictItemMapper extends BaseMapper<DictItemPO> {
+public interface DictItemMapper extends BaseMapper<DictItemEntity> {
 }

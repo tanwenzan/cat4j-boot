@@ -2,8 +2,9 @@ package cn.zeroable.cat4j.base.controller;
 
 import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.dev33.satoken.stp.StpUtil;
-import cn.zeroable.cat4j.base.po.MenuPO;
+import cn.zeroable.cat4j.base.entity.MenuEntity;
 import cn.zeroable.cat4j.base.service.MenuService;
+import cn.zeroable.cat4j.base.vo.MenuVO;
 import cn.zeroable.cat4j.base.vo.RouterInfo;
 import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.core.util.ArrayUtil;
@@ -14,7 +15,6 @@ import cn.zeroable.cat4j.support.Condition;
 import cn.zeroable.cat4j.support.Query;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
@@ -48,8 +48,8 @@ public class MenuController {
      */
     @GetMapping("{id}")
     @SaCheckPermission("menu.detail")
-    public ApiResult<MenuPO> detail(@PathVariable String id) {
-        MenuPO detail = menuService.getById(id);
+    public ApiResult<MenuEntity> detail(@PathVariable String id) {
+        MenuEntity detail = menuService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -63,11 +63,9 @@ public class MenuController {
      * @date 2023-12-27 21:07:21
      */
     @GetMapping
-    @SaCheckPermission("menu.detail")
-    public ApiResult<IPage<MenuPO>> pageQuery(MenuPO menu, Query query) {
-        QueryWrapper<MenuPO> queryWrapper = Condition.getQueryWrapper(menu);
-        IPage<MenuPO> pages = menuService.page(Condition.getPage(query), queryWrapper);
-        return ApiResult.ok(pages);
+    @SaCheckPermission("menu.view")
+    public ApiResult<IPage<MenuVO>> pageQuery(MenuEntity menu, Query query) {
+        return ApiResult.ok(menuService.page(menu, query));
     }
 
     /**
@@ -80,7 +78,7 @@ public class MenuController {
      */
     @PostMapping
     @SaCheckPermission("menu.add")
-    public ApiResult<MenuPO> add(@RequestBody @Validated(Add.class) MenuPO menu) {
+    public ApiResult<MenuEntity> add(@RequestBody @Validated(Add.class) MenuEntity menu) {
         menuService.save(menu);
         return ApiResult.ok();
     }
@@ -95,7 +93,7 @@ public class MenuController {
      */
     @PutMapping
     @SaCheckPermission("menu.edit")
-    public ApiResult<MenuPO> edit(@RequestBody @Validated(Update.class) MenuPO menu) {
+    public ApiResult<MenuEntity> edit(@RequestBody @Validated(Update.class) MenuEntity menu) {
         menuService.updateById(menu);
         return ApiResult.ok();
     }

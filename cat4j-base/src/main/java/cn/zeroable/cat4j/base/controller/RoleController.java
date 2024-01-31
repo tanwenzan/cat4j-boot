@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.controller;
 
-import cn.zeroable.cat4j.base.po.RolePO;
+import cn.zeroable.cat4j.base.entity.RoleEntity;
 import cn.zeroable.cat4j.base.service.RoleService;
 import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.core.util.ArrayUtil;
@@ -42,8 +42,8 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @GetMapping("{id}")
-    public ApiResult<RolePO> detail(@PathVariable String id) {
-        RolePO detail = roleService.getById(id);
+    public ApiResult<RoleEntity> detail(@PathVariable String id) {
+        RoleEntity detail = roleService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -57,9 +57,9 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @GetMapping
-    public ApiResult<IPage<RolePO>> pageQuery(RolePO role, Query query) {
-        QueryWrapper<RolePO> queryWrapper = Condition.getQueryWrapper(role);
-        IPage<RolePO> pages = roleService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<RoleEntity>> pageQuery(RoleEntity role, Query query) {
+        QueryWrapper<RoleEntity> queryWrapper = Condition.getQueryWrapper(role);
+        IPage<RoleEntity> pages = roleService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -72,7 +72,7 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @PostMapping
-    public ApiResult<RolePO> add(@RequestBody @Validated(Add.class) RolePO role) {
+    public ApiResult<RoleEntity> add(@RequestBody @Validated(Add.class) RoleEntity role) {
         roleService.save(role);
         return ApiResult.ok();
     }
@@ -86,7 +86,7 @@ public class RoleController {
      * @date 2023-12-27 21:34:21
      */
     @PutMapping
-    public ApiResult<RolePO> edit(@RequestBody @Validated(Update.class) RolePO role) {
+    public ApiResult<RoleEntity> edit(@RequestBody @Validated(Update.class) RoleEntity role) {
         roleService.updateById(role);
         return ApiResult.ok();
     }

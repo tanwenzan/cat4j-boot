@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.base.service.impl;
 
 import cn.zeroable.cat4j.base.mapper.DictItemMapper;
-import cn.zeroable.cat4j.base.po.DictItemPO;
+import cn.zeroable.cat4j.base.entity.DictItemEntity;
 import cn.zeroable.cat4j.base.service.DictItemService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
@@ -17,5 +17,5 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItemPO> implements DictItemService {
+public class DictItemServiceImpl extends ServiceImpl<DictItemMapper, DictItemEntity> implements DictItemService {
 }

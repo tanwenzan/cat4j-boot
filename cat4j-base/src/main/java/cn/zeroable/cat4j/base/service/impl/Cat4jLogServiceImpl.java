@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.base.service.impl;
 
 import cn.zeroable.cat4j.base.mapper.Cat4jLogMapper;
-import cn.zeroable.cat4j.base.po.Cat4jLogPO;
+import cn.zeroable.cat4j.base.entity.Cat4jLogEntity;
 import cn.zeroable.cat4j.base.service.Cat4jLogService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
@@ -17,5 +17,5 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class Cat4jLogServiceImpl extends ServiceImpl<Cat4jLogMapper, Cat4jLogPO> implements Cat4jLogService {
+public class Cat4jLogServiceImpl extends ServiceImpl<Cat4jLogMapper, Cat4jLogEntity> implements Cat4jLogService {
 }

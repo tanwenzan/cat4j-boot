@@ -17,7 +17,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import cn.zeroable.cat4j.base.po.UserPO;
+import cn.zeroable.cat4j.base.entity.UserEntity;
 import cn.zeroable.cat4j.base.service.UserService;
 
 import java.util.Arrays;
@@ -49,8 +49,8 @@ public class UserController {
      */
     @GetMapping("{id}")
     @SaCheckPermission("user.detail")
-    public ApiResult<UserPO> detail(@PathVariable String id) {
-        UserPO detail = userService.getById(id);
+    public ApiResult<UserEntity> detail(@PathVariable String id) {
+        UserEntity detail = userService.getById(id);
         return ApiResult.ok(detail);
     }
 
@@ -65,9 +65,9 @@ public class UserController {
      */
     @GetMapping
     @SaCheckPermission("user.view")
-    public ApiResult<IPage<UserPO>> pageQuery(@RequestParam UserPO user, Query query) {
-        QueryWrapper<UserPO> queryWrapper = Condition.getQueryWrapper(user);
-        IPage<UserPO> pages = userService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<UserEntity>> pageQuery(@RequestParam UserEntity user, Query query) {
+        QueryWrapper<UserEntity> queryWrapper = Condition.getQueryWrapper(user);
+        IPage<UserEntity> pages = userService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
@@ -81,7 +81,7 @@ public class UserController {
      */
     @PostMapping
     @SaCheckPermission("user.add")
-    public ApiResult<UserPO> add(@RequestBody @Validated(Add.class) UserPO user) {
+    public ApiResult<UserEntity> add(@RequestBody @Validated(Add.class) UserEntity user) {
         userService.save(user);
         return ApiResult.ok();
     }
@@ -96,7 +96,7 @@ public class UserController {
      */
     @PutMapping
     @SaCheckPermission("user.edit")
-    public ApiResult<UserPO> edit(@RequestBody @Validated(Update.class) UserPO user) {
+    public ApiResult<UserEntity> edit(@RequestBody @Validated(Update.class) UserEntity user) {
         userService.updateById(user);
         return ApiResult.ok();
     }

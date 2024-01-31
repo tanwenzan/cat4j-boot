@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.service;
 
-import cn.zeroable.cat4j.base.po.UserPO;
+import cn.zeroable.cat4j.base.entity.UserEntity;
 import cn.zeroable.cat4j.base.vo.UserVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @version : 2023-12-27 21:34:21
  * @since 0.0.1
  */
-public interface UserService extends IService<UserPO> {
+public interface UserService extends IService<UserEntity> {
     /**
      * 通过用户id 获取 用户信息。
      *

@@ -1,12 +1,12 @@
 package cn.zeroable.cat4j.base.service.impl;
 
+import cn.zeroable.cat4j.base.entity.OauthClientDetailsEntity;
+import cn.zeroable.cat4j.base.mapper.OauthClientDetailsMapper;
+import cn.zeroable.cat4j.base.service.OauthClientDetailsService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import cn.zeroable.cat4j.base.entity.OauthClientDetails;
-import cn.zeroable.cat4j.base.mapper.OauthClientDetailsMapper;
-import cn.zeroable.cat4j.base.service.OauthClientDetailsService;
 /**
  * 终端信息表;(cat4j_oauth_client_details)表服务实现类
  *
@@ -17,5 +17,5 @@ import cn.zeroable.cat4j.base.service.OauthClientDetailsService;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class OauthClientDetailsServiceImpl extends ServiceImpl<OauthClientDetailsMapper, OauthClientDetails> implements OauthClientDetailsService {
+public class OauthClientDetailsServiceImpl extends ServiceImpl<OauthClientDetailsMapper, OauthClientDetailsEntity> implements OauthClientDetailsService {
 }

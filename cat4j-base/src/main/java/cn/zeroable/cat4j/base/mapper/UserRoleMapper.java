@@ -1,8 +1,8 @@
 package cn.zeroable.cat4j.base.mapper;
 
+import cn.zeroable.cat4j.base.entity.UserRoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import cn.zeroable.cat4j.base.entity.UserRole;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  * @since 0.0.1
  */
 @Mapper
-public interface UserRoleMapper extends BaseMapper<UserRole> {
+public interface UserRoleMapper extends BaseMapper<UserRoleEntity> {
 
     /**
      * 查找用户对应的角色。

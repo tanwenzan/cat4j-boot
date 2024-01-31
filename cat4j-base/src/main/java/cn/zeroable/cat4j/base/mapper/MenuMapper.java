@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.mapper;
 
-import cn.zeroable.cat4j.base.po.MenuPO;
+import cn.zeroable.cat4j.base.entity.MenuEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,8 +14,8 @@ import java.util.List;
  * @since 0.0.1
  */
 @Mapper
-public interface MenuMapper extends BaseMapper<MenuPO> {
+public interface MenuMapper extends BaseMapper<MenuEntity> {
 
-     List<MenuPO> getMenusByUserId(Long userId);
+     List<MenuEntity> getMenusByUserId(Long userId);
 
  }

@@ -1,4 +1,4 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
 import cn.zeroable.cat4j.entity.BasePO;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -20,7 +20,17 @@ import java.io.Serializable;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class MenuPO extends BasePO implements Serializable, Cloneable {
+public class MenuEntity extends BasePO implements Serializable, Cloneable {
+
+    /**
+     * 菜单类型：按钮
+     */
+    public static final Integer MENU_TYPE_BUTTON = 1;
+
+    /**
+     * 菜单类型：菜单
+     */
+    public static final Integer MENU_TYPE_MENU = 0;
 
     /**
      * 父菜单ID
@@ -95,7 +105,7 @@ public class MenuPO extends BasePO implements Serializable, Cloneable {
     private String menuConfig;
 
     @Override
-    public MenuPO clone() {
-        return (MenuPO) super.clone();
+    public MenuEntity clone() {
+        return (MenuEntity) super.clone();
     }
 }

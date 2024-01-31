@@ -1,5 +1,6 @@
 package cn.zeroable.cat4j.base.vo;
 
+import cn.hutool.core.util.ObjectUtil;
 import cn.zeroable.cat4j.entity.BaseEntity;
 import lombok.*;
 
@@ -83,4 +84,15 @@ public class MenuVO extends BaseEntity {
      * 子菜单
      */
     private List<MenuVO> children;
+
+    /**
+     * 此方法是提供给spring 处理响应数据时进行set的 所以请勿删除。
+     *
+     * @return boolean
+     * @author zeroable
+     * @date 2024/1/31 16:43
+     */
+    public boolean getHasChildren() {
+        return ObjectUtil.isNotEmpty(children);
+    }
 }

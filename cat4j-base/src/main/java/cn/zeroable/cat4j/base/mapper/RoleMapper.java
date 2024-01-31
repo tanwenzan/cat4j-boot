@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.mapper;
 
-import cn.zeroable.cat4j.base.po.RolePO;
+import cn.zeroable.cat4j.base.entity.RoleEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -14,8 +14,8 @@ import java.util.List;
  * @since 0.0.1
  */
 @Mapper
-public interface RoleMapper extends BaseMapper<RolePO> {
+public interface RoleMapper extends BaseMapper<RoleEntity> {
 
-     List<RolePO> getRolesByUserId(Long userId);
+     List<RoleEntity> getRolesByUserId(Long userId);
 
  }

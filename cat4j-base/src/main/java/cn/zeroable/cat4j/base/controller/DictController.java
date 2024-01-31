@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.controller;
 
-import cn.zeroable.cat4j.base.po.DictPO;
+import cn.zeroable.cat4j.base.entity.DictEntity;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import cn.zeroable.cat4j.core.validation.Add;
@@ -42,52 +42,52 @@ public class DictController {
      * @date 2023-12-27 21:35:21
      */
     @GetMapping("{id}")
-    public ApiResult<DictPO> detail(@PathVariable String id) {
-        DictPO detail = dictService.getById(id);
+    public ApiResult<DictEntity> detail(@PathVariable String id) {
+        DictEntity detail = dictService.getById(id);
         return ApiResult.ok(detail);
     }
 
     /**
      * 分页查询
      *
-     * @param DictPO  筛选条件
+     * @param DictEntity  筛选条件
      * @param query 分页对象
      * @return ApiResult<IPage < DictPO>> 查询结果
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @GetMapping
-    public ApiResult<IPage<DictPO>> pageQuery(DictPO DictPO, Query query) {
-        QueryWrapper<DictPO> queryWrapper = Condition.getQueryWrapper(DictPO);
-        IPage<DictPO> pages = dictService.page(Condition.getPage(query), queryWrapper);
+    public ApiResult<IPage<DictEntity>> pageQuery(DictEntity DictEntity, Query query) {
+        QueryWrapper<DictEntity> queryWrapper = Condition.getQueryWrapper(DictEntity);
+        IPage<DictEntity> pages = dictService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
     }
 
     /**
      * 新增数据
      *
-     * @param DictPO 实例对象
+     * @param DictEntity 实例对象
      * @return ApiResult<DictPO> 实例对象
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @PostMapping
-    public ApiResult<DictPO> add(@RequestBody @Validated(Add.class) DictPO DictPO) {
-        dictService.save(DictPO);
+    public ApiResult<DictEntity> add(@RequestBody @Validated(Add.class) DictEntity DictEntity) {
+        dictService.save(DictEntity);
         return ApiResult.ok();
     }
 
     /**
      * 更新数据
      *
-     * @param DictPO 实例对象
+     * @param DictEntity 实例对象
      * @return ApiResult<DictPO> 实例对象
      * @author zeroable
      * @date 2023-12-27 21:35:21
      */
     @PutMapping
-    public ApiResult<DictPO> edit(@RequestBody @Validated(Update.class) DictPO DictPO) {
-        dictService.updateById(DictPO);
+    public ApiResult<DictEntity> edit(@RequestBody @Validated(Update.class) DictEntity DictEntity) {
+        dictService.updateById(DictEntity);
         return ApiResult.ok();
     }
 

@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.mapper;
 
-import cn.zeroable.cat4j.base.po.OrganizationPO;
+import cn.zeroable.cat4j.base.entity.OrganizationEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,5 +12,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 0.0.1
  */
 @Mapper
-public interface OrganizationMapper extends BaseMapper<OrganizationPO> {
+public interface OrganizationMapper extends BaseMapper<OrganizationEntity> {
 }

@@ -1,6 +1,6 @@
 package cn.zeroable.cat4j.base.service.impl;
 
-import cn.zeroable.cat4j.base.entity.UserRole;
+import cn.zeroable.cat4j.base.entity.UserRoleEntity;
 import cn.zeroable.cat4j.base.mapper.UserRoleMapper;
 import cn.zeroable.cat4j.base.service.RoleService;
 import cn.zeroable.cat4j.base.service.UserRoleService;
@@ -26,7 +26,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRole> implements UserRoleService {
+public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper, UserRoleEntity> implements UserRoleService {
 
     private final UserService userService;
 

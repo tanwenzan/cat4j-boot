@@ -1,7 +1,7 @@
 package cn.zeroable.cat4j.base.service.impl;
 
 import cn.zeroable.cat4j.base.mapper.OrganizationMapper;
-import cn.zeroable.cat4j.base.po.OrganizationPO;
+import cn.zeroable.cat4j.base.entity.OrganizationEntity;
 import cn.zeroable.cat4j.base.service.OrganizationService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.AllArgsConstructor;
@@ -17,5 +17,5 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 @Slf4j
-public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, OrganizationPO> implements OrganizationService {
+public class OrganizationServiceImpl extends ServiceImpl<OrganizationMapper, OrganizationEntity> implements OrganizationService {
 }

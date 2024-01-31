@@ -1,5 +1,8 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
+import cn.hutool.crypto.SecureUtil;
+import cn.zeroable.cat4j.base.dto.LoginDTO;
+import cn.zeroable.cat4j.core.ApiResult;
 import cn.zeroable.cat4j.entity.BasePO;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -21,7 +24,7 @@ import java.io.Serializable;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserPO extends BasePO implements Serializable, Cloneable {
+public class UserEntity extends BasePO implements Serializable, Cloneable {
 
     /**
      * 账号
@@ -86,7 +89,23 @@ public class UserPO extends BasePO implements Serializable, Cloneable {
     private Integer lockFlag;
 
     @Override
-    public UserPO clone() {
-        return (UserPO) super.clone();
+    public UserEntity clone() {
+        return (UserEntity) super.clone();
+    }
+
+    public boolean isLock() {
+        return lockFlag != null && lockFlag == 1;
+    }
+
+    public ApiResult<String> validatedLogin(LoginDTO loginInfo) {
+        if (isLock()) {
+            return ApiResult.fail("当前账号被锁定，请联系管理员解锁");
+        }
+        String prePassWord = loginInfo.getPassWord().toUpperCase();
+        String afterPassWord = SecureUtil.md5(prePassWord + salt).toUpperCase();
+        if (afterPassWord.equals(loginPwd)) {
+            return ApiResult.ok();
+        }
+        return ApiResult.fail("密码错误");
     }
 }

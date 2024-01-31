@@ -1,4 +1,4 @@
-package cn.zeroable.cat4j.base.po;
+package cn.zeroable.cat4j.base.entity;
 
 import cn.zeroable.cat4j.entity.BasePO;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -22,7 +22,7 @@ import java.io.Serializable;
 @Data
 @ToString
 @AllArgsConstructor
-public class DictPO extends BasePO implements Serializable, Cloneable {
+public class DictEntity extends BasePO implements Serializable, Cloneable {
 
     /**
      * 标识
@@ -44,7 +44,7 @@ public class DictPO extends BasePO implements Serializable, Cloneable {
 
 
     @Override
-    public DictPO clone() {
-        return (DictPO) super.clone();
+    public DictEntity clone() {
+        return (DictEntity) super.clone();
     }
 }
