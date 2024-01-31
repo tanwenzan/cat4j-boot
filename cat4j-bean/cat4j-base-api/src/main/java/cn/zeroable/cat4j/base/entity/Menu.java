@@ -119,11 +119,15 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
         if (parent == null) {
             routerInfo.setComponent("#");
         } else {
-            redirect = parent.getPath() + "/" + redirect;
+            redirect = parent.getRedirect() + "/" + redirect;
             parent.setRedirect(redirect);
             // 多级菜单处理
             if (hasChildren) {
+                routerInfo.setRedirect(redirect);
                 routerInfo.setComponent("##");
+            }else {
+                // 叶子菜单无需重定向
+                routerInfo.setRedirect(null);
             }
         }
         if (hasChildren) {
@@ -163,6 +167,7 @@ public class Menu extends BaseEntity implements Serializable, Cloneable {
             path = "/" + code;
         }
         routerInfo.setPath(path);
+        routerInfo.setRedirect(path);
         RouterMetaInfo routerMetaInfo = new RouterMetaInfo();
         routerInfo.setMeta(routerMetaInfo);
         routerMetaInfo.setIcon(menuViewObject.getIcon());
