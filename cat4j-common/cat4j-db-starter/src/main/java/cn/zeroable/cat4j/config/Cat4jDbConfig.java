@@ -2,6 +2,7 @@ package cn.zeroable.cat4j.config;
 
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,6 +25,15 @@ public class Cat4jDbConfig {
      */
     private static final String DYNAMIC = "dynamic";
 
+
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(paginationInnerInterceptor());
+        interceptor.addInnerInterceptor(optimisticLockerInnerInterceptor());
+        return interceptor;
+    }
+
     /**
      * 分页插件。
      *
@@ -31,8 +41,7 @@ public class Cat4jDbConfig {
      * @author zeroable
      * @date 12/24/23 9:57 PM
      */
-    @Bean("paginationInnerInterceptor")
-    public PaginationInnerInterceptor paginationInnerInterceptor() {
+    private PaginationInnerInterceptor paginationInnerInterceptor() {
         PaginationInnerInterceptor paginationInnerInterceptor = new PaginationInnerInterceptor();
         // 如果是多数据源，就跳过设置数据源
         if (!StrUtil.equals(dbTypeStr.toLowerCase(), DYNAMIC)) {
@@ -49,7 +58,6 @@ public class Cat4jDbConfig {
      * @author zeroable
      * @date 12/24/23 9:56 PM
      */
-    @Bean("optimisticLockerInnerInterceptor")
     public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
         return new OptimisticLockerInnerInterceptor();
     }

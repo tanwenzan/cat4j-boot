@@ -97,6 +97,10 @@ public class UserEntity extends BasePO implements Serializable, Cloneable {
         return lockFlag != null && lockFlag == 1;
     }
 
+    public void lock() {
+        this.lockFlag = 1;
+    }
+
     public ApiResult<String> validatedLogin(LoginDTO loginInfo) {
         if (isLock()) {
             return ApiResult.fail("当前账号被锁定，请联系管理员解锁");

@@ -58,7 +58,7 @@ public class MenuVO extends BaseEntity {
     /**
      * 排序值
      */
-    private String sortOrder;
+    private Integer sortOrder;
 
     /**
      * 0-开启，1- 关闭
@@ -85,14 +85,4 @@ public class MenuVO extends BaseEntity {
      */
     private List<MenuVO> children;
 
-    /**
-     * 此方法是提供给spring 处理响应数据时进行set的 所以请勿删除。
-     *
-     * @return boolean
-     * @author zeroable
-     * @date 2024/1/31 16:43
-     */
-    public boolean getHasChildren() {
-        return ObjectUtil.isNotEmpty(children);
-    }
 }

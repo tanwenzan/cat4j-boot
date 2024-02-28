@@ -12,7 +12,3 @@ INSERT INTO cat4j_menu (id, parent_id, tree_path, code, name, permission, path, 
 INSERT INTO cat4j_role_menu (role_id, menu_id) VALUES (3932521684953091, 3932521684953088);
 INSERT INTO cat4j_role_menu (role_id, menu_id) VALUES (3932521684953091, 3932521684953089);
 
-
-INSERT INTO cat4j_role_menu (role_id, menu_id) VALUES (3932521684953091, 3932521684953088);
-INSERT INTO cat4j_role_menu (role_id, menu_id) VALUES (3932521684953091, 3932521684953089);
-
