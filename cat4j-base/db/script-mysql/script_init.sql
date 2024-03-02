@@ -4,9 +4,8 @@ INSERT INTO cat4j_role (id, role_name, role_code, role_desc, create_by, create_t
 
 INSERT INTO cat4j_user_role (user_id, role_id) VALUES (3904233767069696, 3932521684953091);
 
-INSERT INTO cat4j_menu (id, parent_id, tree_path, code, name, permission, path, icon, sort_order, keep_alive, type, menu_type, menu_config, create_by, create_time, update_by, update_time, re_version, hide) VALUES (3932521684953088, '0', '3932521684953088
-', 'admin', 'router.base.baseSetting', null, '/Admin', 'code:Setting', '-1', '1', 0, null, null, 3904233767069696, '2024-01-11 16:16:58', null, null, 0, 0);
-INSERT INTO cat4j_menu (id, parent_id, tree_path, code, name, permission, path, icon, sort_order, keep_alive, type, menu_type, menu_config, create_by, create_time, update_by, update_time, re_version, hide) VALUES (3932521684953089, '3932521684953088', '3932521684953089/3932521684953089', 'menu', 'router.base.menu', 'menu.view', '/Admin/menu/menu', 'code:Menu', '1000', '1', 0, 1, null, 3904233767069696, '2024-01-11 16:20:46', null, null, 0, 0);
+INSERT INTO cat4j_menu (id, parent_id, tree_path, code, name, permission, path, icon, sort_order, keep_alive, type, menu_type, menu_config, create_by, create_time, update_by, update_time, re_version, hide) VALUES (3932521684953088, '0', '3932521684953088', 'admin', 'router.base.baseSetting', null, '/Admin', 'remote:xianxing-_shezhi2', '-1', '1', 0, null, null, 3904233767069696, '2024-01-11 16:16:58', null, null, 0, 0);
+INSERT INTO cat4j_menu (id, parent_id, tree_path, code, name, permission, path, icon, sort_order, keep_alive, type, menu_type, menu_config, create_by, create_time, update_by, update_time, re_version, hide) VALUES (3932521684953089, '3932521684953088', '3932521684953089/3932521684953089', 'menu', 'router.base.menu', 'menu.view', '/Admin/menu/menu', 'remote:xianxing-_caidan1', '1000', '1', 0, 1, null, 3904233767069696, '2024-01-11 16:20:46', null, null, 0, 0);
 
 
 INSERT INTO cat4j_role_menu (role_id, menu_id) VALUES (3932521684953091, 3932521684953088);
