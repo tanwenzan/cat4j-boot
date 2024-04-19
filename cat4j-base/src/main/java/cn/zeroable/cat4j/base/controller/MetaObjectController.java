@@ -1,6 +1,7 @@
 package cn.zeroable.cat4j.base.controller;
 
 import cn.zeroable.cat4j.base.dto.MetaObjectAddDTO;
+import cn.zeroable.cat4j.base.vo.TableInfoVO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import cn.zeroable.cat4j.core.validation.Add;
@@ -18,6 +19,7 @@ import cn.zeroable.cat4j.base.entity.MetaObjectEntity;
 import cn.zeroable.cat4j.base.service.MetaObjectService;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 元对象 接口
@@ -62,6 +64,20 @@ public class MetaObjectController {
         QueryWrapper<MetaObjectEntity> queryWrapper = Condition.getQueryWrapper(metaObject);
         IPage<MetaObjectEntity> pages = metaObjectService.page(Condition.getPage(query), queryWrapper);
         return ApiResult.ok(pages);
+    }
+
+    /**
+     * 获取数据库表信息列表接口。
+     *
+     * @param tableName 表名称
+     * @return cn.zeroable.cat4j.core.ApiResult<java.util.List < cn.zeroable.cat4j.base.vo.TableInfoVO>>
+     * @author zeroable
+     * @date 2024/4/2 10:14
+     */
+    @GetMapping("table-list")
+    public ApiResult<List<TableInfoVO>> tableList(@RequestParam(value = "tableName", name = "tableName", required = false) String tableName) {
+        List<TableInfoVO> tableList = metaObjectService.tableList(tableName);
+        return ApiResult.ok(tableList);
     }
 
     /**

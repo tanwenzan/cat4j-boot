@@ -5,8 +5,12 @@ import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
+import org.apache.ibatis.mapping.DatabaseIdProvider;
+import org.apache.ibatis.mapping.VendorDatabaseIdProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+
+import java.util.Properties;
 
 /**
  * 数据库配置.
@@ -61,4 +65,22 @@ public class Cat4jDbConfig {
     public OptimisticLockerInnerInterceptor optimisticLockerInnerInterceptor() {
         return new OptimisticLockerInnerInterceptor();
     }
+
+    /**
+     * 为了配置管理我把这段代码加入到了 MybatisPlusConfig 中。
+     *
+     * @return com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor
+     * @author zeroable
+     * @date 02/04/24 9:57 PM
+     */
+    @Bean
+    public DatabaseIdProvider databaseIdProvider() {
+        VendorDatabaseIdProvider databaseIdProvider = new VendorDatabaseIdProvider();
+        Properties properties = new Properties();
+        properties.put("Oracle","oracle");
+        properties.put("MySQL","mysql");
+        databaseIdProvider.setProperties(properties);
+        return databaseIdProvider;
+    }
+
 }
