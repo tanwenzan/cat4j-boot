@@ -1,8 +1,11 @@
 package cn.zeroable.cat4j.base.mapper;
 
 import cn.zeroable.cat4j.base.entity.MetaObjectEntity;
+import cn.zeroable.cat4j.base.vo.ColumnInfoVO;
 import cn.zeroable.cat4j.base.vo.TableInfoVO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,5 +19,9 @@ import java.util.List;
  */
 @Mapper
 public interface MetaObjectMapper extends BaseMapper<MetaObjectEntity> {
-    List<TableInfoVO> getTableList(String dbName, String tableName);
+
+    IPage<TableInfoVO> getTableList(String dbName, String tableName, Page<MetaObjectEntity> page);
+
+
+    List<ColumnInfoVO> getColumInfo(String dbName, String tableName);
 }

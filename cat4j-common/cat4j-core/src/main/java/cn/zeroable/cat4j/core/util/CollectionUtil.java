@@ -2,10 +2,7 @@ package cn.zeroable.cat4j.core.util;
 
 import cn.hutool.core.util.ObjectUtil;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -38,4 +35,5 @@ public class CollectionUtil {
         }
         return result;
     }
+
 }

@@ -34,6 +34,7 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 public class MetaObjectController {
+
     private MetaObjectService metaObjectService;
 
     /**
@@ -75,8 +76,8 @@ public class MetaObjectController {
      * @date 2024/4/2 10:14
      */
     @GetMapping("table-list")
-    public ApiResult<List<TableInfoVO>> tableList(@RequestParam(value = "tableName", name = "tableName", required = false) String tableName) {
-        List<TableInfoVO> tableList = metaObjectService.tableList(tableName);
+    public ApiResult<IPage<TableInfoVO>> tableList(@RequestParam(value = "tableName", name = "tableName", required = false) String tableName, Query query) {
+        IPage<TableInfoVO> tableList = metaObjectService.tableList(tableName, query);
         return ApiResult.ok(tableList);
     }
 

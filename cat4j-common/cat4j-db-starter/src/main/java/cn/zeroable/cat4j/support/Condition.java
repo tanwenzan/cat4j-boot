@@ -29,7 +29,8 @@ public class Condition {
      * @date 2023/8/18 11:14
      */
     public static <T> IPage<T> getPage(Query query) {
-        Page<T> page = new Page<>(NumberUtil.toInt(query.getCurrent(), 1), NumberUtil.toInt(query.getSize(), 10));
+        Page<T> page = new Page<>(NumberUtil.toInt(query.getCurrent(), Long.valueOf(Query.DEFAULT_CURRENT).intValue()),
+                NumberUtil.toInt(query.getSize(), Long.valueOf(Query.DEFAULT_LIMIT).intValue()));
         String[] ascArr = ArrayUtil.toStrArray(query.getAsc());
         for (String asc : ascArr) {
             page.addOrder(OrderItem.asc(cleanIdentifier(asc)));

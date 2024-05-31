@@ -2,6 +2,8 @@ package cn.zeroable.cat4j.base.service;
 
 import cn.zeroable.cat4j.base.dto.MetaObjectAddDTO;
 import cn.zeroable.cat4j.base.vo.TableInfoVO;
+import cn.zeroable.cat4j.support.Query;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.zeroable.cat4j.base.entity.MetaObjectEntity;
 
@@ -17,6 +19,6 @@ public interface MetaObjectService extends IService<MetaObjectEntity> {
 
      void addMetaObject(MetaObjectAddDTO metaObject);
 
-     List<TableInfoVO> tableList(String tableName);
+     IPage<TableInfoVO> tableList(String tableName, Query query);
 
  }

@@ -20,7 +20,6 @@ public class NumberUtil {
      * @author zeroable
      * @date 2023/8/18 10:25
      */
-
     public static int toInt(final Object value) {
         return NumberUtil.toInt(String.valueOf(value));
     }

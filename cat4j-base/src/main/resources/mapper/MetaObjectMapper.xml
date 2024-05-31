@@ -13,6 +13,22 @@
             and TABLE_NAME like concat('%',#{tableName},'%')
         </if>
             order by CREATE_TIME desc
-        <if test="tableName = null or tableName =''"> limit 0,20 </if>
+    </select>
+
+    <select id="getColumInfo" databaseId="mysql" resultType="cn.zeroable.cat4j.base.vo.ColumnInfoVO">
+        select
+            COLUMN_NAME as columnName,
+            ifnull(COLUMN_COMMENT, COLLATION_NAME) as comment,
+            TABLE_NAME as tableName,
+            TABLE_SCHEMA as dbName,
+            ORDINAL_POSITION as orderNo,
+            if(IS_NULLABLE = 'YES',0,1) as isNullable,
+            DATA_TYPE as dataType,
+            CHARACTER_MAXIMUM_LENGTH as dataLen,
+            COLUMN_DEFAULT as defaultVal,
+            if(COLUMN_KEY = 'PRI',1,0) as isPri
+        from information_schema.columns
+        where table_schema = #{dbName}  and table_name = #{tableName}
+        order by ORDINAL_POSITION;
     </select>
 </mapper>
