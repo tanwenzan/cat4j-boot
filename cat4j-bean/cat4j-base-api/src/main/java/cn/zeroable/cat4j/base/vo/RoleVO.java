@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 /**
  * 角色信息 View Object.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2024/1/13 13:09
  * @since 0.0.1
  */

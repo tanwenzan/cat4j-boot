@@ -1,6 +1,7 @@
 package cn.zeroable.cat4j.base.service.impl;
 
 import cn.zeroable.cat4j.base.dto.MetaObjectAddDTO;
+import cn.zeroable.cat4j.base.mapper.MetaFieldMapper;
 import cn.zeroable.cat4j.base.vo.ColumnInfoVO;
 import cn.zeroable.cat4j.base.vo.TableInfoVO;
 import cn.zeroable.cat4j.core.exception.BiException;
@@ -47,8 +48,11 @@ public class MetaObjectServiceImpl extends ServiceImpl<MetaObjectMapper, MetaObj
         } catch (SQLException e) {
             throw new BiException(e.getMessage(), e);
         }
-        List<ColumnInfoVO> columInfo = this.baseMapper.getColumInfo(dbName, metaObject.getTableName());
-        AssertUtil.notEmpty(columInfo, "表信息不存在，请检查后再试");
+        List<ColumnInfoVO> columnInfoVOList = this.baseMapper.getColumInfo(dbName, metaObject.getTableName());
+        AssertUtil.notEmpty(columnInfoVOList, "表信息不存在，请检查后再试");
+        ColumnInfoVO columnInfoVO = columnInfoVOList.stream().filter(ColumnInfoVO::getIsPri).findFirst()
+                .orElse(null);
+
     }
 
     @Override
@@ -66,5 +70,4 @@ public class MetaObjectServiceImpl extends ServiceImpl<MetaObjectMapper, MetaObj
         return null != getOne(new QueryWrapper<MetaObjectEntity>().lambda().eq(MetaObjectEntity::getCode, code)
                 .or().eq(MetaObjectEntity::getName, name));
     }
-
 }

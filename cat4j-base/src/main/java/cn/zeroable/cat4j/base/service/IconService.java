@@ -7,7 +7,7 @@ import cn.zeroable.cat4j.base.entity.IconEntity;
 /**
  * 图标表;(cat4j_icon) 表服务接口
  *
- * @author : tanwenzan
+ * @author : zeroable
  * @version : 2024-02-07 10:08:10
  * @since 0.0.1
  */

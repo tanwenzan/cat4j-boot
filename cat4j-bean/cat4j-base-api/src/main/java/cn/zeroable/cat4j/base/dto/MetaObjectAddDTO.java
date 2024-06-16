@@ -7,7 +7,7 @@ import lombok.Data;
 /**
  * 新增元对象DTO.
  *
- * @author tanwenzan
+ * @author zeroable
  * @version 2024/3/1 11:49
  * @since 0.0.1
  */
@@ -48,4 +48,5 @@ public class MetaObjectAddDTO {
      */
     @NotNull(message = "类型不能为空")
     private Integer type;
+
 }

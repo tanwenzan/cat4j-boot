@@ -2,6 +2,7 @@ package cn.zeroable.cat4j.base.controller;
 
 import cn.zeroable.cat4j.base.dto.MetaObjectAddDTO;
 import cn.zeroable.cat4j.base.vo.TableInfoVO;
+import cn.zeroable.cat4j.core.DataSourceManager;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import cn.zeroable.cat4j.core.validation.Add;
@@ -26,7 +27,6 @@ import java.util.List;
  *
  * @author zeroable
  * @version 2024-03-01 11:06:11
- * @see
  * @since 0.0.1
  */
 @RestController
@@ -36,6 +36,8 @@ import java.util.List;
 public class MetaObjectController {
 
     private MetaObjectService metaObjectService;
+
+    private DataSourceManager dataSourceManager;
 
     /**
      * 通过ID查询单条数据
@@ -120,5 +122,10 @@ public class MetaObjectController {
     @DeleteMapping
     public ApiResult<Boolean> deleteById(@RequestBody @Validated BaseDeleteDTO baseDelete) {
         return ApiResult.ok(metaObjectService.removeByIds(Arrays.asList(ArrayUtil.toStrArray(baseDelete.getIds()))));
+    }
+
+    @GetMapping("/datasource-list")
+    public ApiResult<List<String>> datasourceList() {
+        return ApiResult.ok(dataSourceManager.getDatasourceNames());
     }
 }

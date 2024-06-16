@@ -115,7 +115,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, MenuEntity> impleme
      *
      * @param menus MenuPOList
      * @return java.util.List<cn.zeroable.cat4j.base.vo.MenuVO>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/26 11:15
      */
     private List<MenuVO> buildViewObjects(List<MenuEntity> menus) {
@@ -179,7 +179,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, MenuEntity> impleme
      *
      * @param menus MenuPOList
      * @return java.util.List<cn.zeroable.cat4j.base.vo.MenuVO>
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/26 11:08
      */
     private static List<MenuVO> toViewObjects(List<MenuEntity> menus) {
@@ -213,7 +213,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, MenuEntity> impleme
      * @param menuVO menuVO
      * @param isRoot 是否是跟节点
      * @return cn.zeroable.cat4j.base.vo.RouterInfo
-     * @author tanwenzan
+     * @author zeroable
      * @date 2024/1/26 11:16
      */
     private RouterInfo convertRouterInfo(MenuVO menuVO, boolean isRoot) {

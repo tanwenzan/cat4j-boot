@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * 元对象;(cat4j_meta_object) 表服务接口
- * @author : tanwenzan
+ * @author : zeroable
  * @version : 2024-03-01 11:06:11
  * @since 0.0.1
  */

@@ -17,7 +17,7 @@ public interface UserService extends IService<UserEntity> {
      *
      * @param userId 用户id
      * @return cn.zeroable.cat4j.base.vo.UserVO
-     * @author tanwenzan
+     * @author zeroable
      * @date 1/13/24 5:04 PM
      */
     UserVO getUserById(Long userId);
