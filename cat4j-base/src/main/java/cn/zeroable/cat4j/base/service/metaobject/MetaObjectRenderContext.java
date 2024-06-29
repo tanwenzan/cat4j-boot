@@ -10,10 +10,23 @@ import lombok.Data;
  * @since 0.0.1
  */
 @Data
-public class MetaObjectRenderContext {
+public class MetaObjectRenderContext<T> {
 
-    /** 元对象渲染类型 */
+    /**
+     * 元对象渲染类型
+     */
     private Integer type;
 
-    private String value;
+    /**
+     * 元数据配置
+     */
+    private T config;
+
+    public static <T> MetaObjectRenderContext<T> byConfig(Integer type, T config) {
+        MetaObjectRenderContext<T> context = new MetaObjectRenderContext<>();
+        context.setType(type);
+        context.setConfig(config);
+        return context;
+    }
+
 }

@@ -1,8 +1,7 @@
 package cn.zeroable.cat4j.core.util;
 
 /**
- * 简要说明.
- * <br/> 详细说明.
+ * Number 常用工具类.
  *
  * @author zeroable
  * @version 2023/8/18 10:23
