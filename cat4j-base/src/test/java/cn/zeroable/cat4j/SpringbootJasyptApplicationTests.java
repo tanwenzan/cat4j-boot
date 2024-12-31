@@ -30,8 +30,8 @@ public class SpringbootJasyptApplicationTests {
 
     @Test
     public void encrypt() {
-//        String url = encryptor.encrypt("jdbc:mysql://192.168.158.131:3306/cat4j_bi?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
-        String url = encryptor.encrypt("jdbc:mysql://127.0.0.1:3306/cat4j_base?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
+//        String url = encryptor.encrypt("jdbc:mysql://192.168.0.121:3306/cat4j_bi?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
+        String url = encryptor.encrypt("jdbc:mysql://192.168.5.20:3306/cat4j_base?useSSL=false&serverTimezone=GMT%2B8&useUnicode=true&character_set_server=utf8mb4");
         String name = encryptor.encrypt("root");
         String password = encryptor.encrypt("zeroable2020");
         System.out.println("database url: " + url);
@@ -41,7 +41,7 @@ public class SpringbootJasyptApplicationTests {
 
     @Test
     public void redisEncrypt() {
-        String host = encryptor.encrypt("127.0.0.1");
+        String host = encryptor.encrypt("192.168.5.20");
         String port = encryptor.encrypt("6379");
         System.out.println("redis host: " + host);
         System.out.println("redis port: " + port);

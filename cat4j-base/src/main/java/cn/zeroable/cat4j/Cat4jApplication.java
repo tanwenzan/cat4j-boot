@@ -19,6 +19,10 @@ import org.springframework.cache.annotation.EnableCaching;
 @EnableEncryptableProperties
 public class Cat4jApplication {
     public static void main(String[] args) {
+        // 当前启动类
+        log.info("Cat4jApplication starting...");
+        // 启动SpringBoot
         SpringApplication.run(Cat4jApplication.class, args);
+        log.info("Cat4jApplication started...");
     }
 }

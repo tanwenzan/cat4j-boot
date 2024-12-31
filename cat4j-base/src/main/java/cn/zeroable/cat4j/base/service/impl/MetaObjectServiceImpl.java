@@ -1,6 +1,7 @@
 package cn.zeroable.cat4j.base.service.impl;
 
 import cn.zeroable.cat4j.base.dto.MetaObjectAddDTO;
+import cn.zeroable.cat4j.base.dto.MetaObjectRenderDTO;
 import cn.zeroable.cat4j.base.mapper.MetaFieldMapper;
 import cn.zeroable.cat4j.base.vo.ColumnInfoVO;
 import cn.zeroable.cat4j.base.vo.TableInfoVO;
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 /**
@@ -39,19 +41,21 @@ public class MetaObjectServiceImpl extends ServiceImpl<MetaObjectMapper, MetaObj
     @Override
     @Transactional
     public void addMetaObject(MetaObjectAddDTO metaObject) {
-        String name = metaObject.getName();
-        String code = metaObject.getCode();
+        MetaObjectRenderDTO config = metaObject.getConfig();
+        String name = config.getName();
+        String code = config.getCode();
         AssertUtil.isFalse(isExit(code, name), "元对象名称或者编码已存在，请重新填写");
-        String dbName = "";
-        try {
-            dbName = dataSource.getConnection().getCatalog();
-        } catch (SQLException e) {
-            throw new BiException(e.getMessage(), e);
-        }
-        List<ColumnInfoVO> columnInfoVOList = this.baseMapper.getColumInfo(dbName, metaObject.getTableName());
-        AssertUtil.notEmpty(columnInfoVOList, "表信息不存在，请检查后再试");
-        ColumnInfoVO columnInfoVO = columnInfoVOList.stream().filter(ColumnInfoVO::getIsPri).findFirst()
-                .orElse(null);
+        this.list();
+        //        String dbName = "";
+//        try {
+//            dbName = dataSource.getConnection().getCatalog();
+//        } catch (SQLException e) {
+//            throw new BiException(e.getMessage(), e);
+//        }
+//        List<ColumnInfoVO> columnInfoVOList = this.baseMapper.getColumInfo(dbName, metaObject.getTableName());
+//        AssertUtil.notEmpty(columnInfoVOList, "表信息不存在，请检查后再试");
+//        ColumnInfoVO columnInfoVO = columnInfoVOList.stream().filter(ColumnInfoVO::getIsPri).findFirst()
+//                .orElse(null);
 
     }
 
@@ -59,8 +63,7 @@ public class MetaObjectServiceImpl extends ServiceImpl<MetaObjectMapper, MetaObj
     public IPage<TableInfoVO> tableList(String tableName, Query query) {
         try {
             String dbName = dataSource.getConnection().getCatalog();
-            query = Query.getQuery(query);
-            return this.baseMapper.getTableList(dbName, tableName, query.toPage());
+            return this.baseMapper.getTableList(dbName, tableName, Query.getQuery(query).toPage());
         } catch (Exception e) {
             throw new BiException(e.getMessage(), e);
         }

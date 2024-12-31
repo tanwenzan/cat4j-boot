@@ -10,6 +10,7 @@ import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -77,6 +78,22 @@ public class BiExceptionHandler {
         log.error("违反约束异常:-------------->{}", msg);
         return ApiResult.fail(HttpStatus.BAD_REQUEST.value(), e.getMessage());
     }
+
+    /**
+     * 请求方式错误异常。
+     *
+     * @param e 异常信息
+     * @return cn.zeroable.cat4j.core.ApiResult<java.lang.String>
+     * @author zeroable
+     * @date 2023/8/8 15:32
+     */
+    @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiResult<String> handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
+        Object[] supportedMethods = e.getSupportedMethods();
+        return ApiResult.fail(StrUtil.format("该接口不支持[{}]方式，请使用[{}]方式", e.getMethod(), StrUtil.join(",", supportedMethods)));
+    }
+
 
     /**
      * 业务异常。

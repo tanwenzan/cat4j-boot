@@ -1,6 +1,9 @@
 package cn.zeroable.cat4j.base.dto;
 
+import jakarta.validation.Valid;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * 新增元对象DTO.
@@ -12,6 +15,16 @@ import lombok.Data;
 @Data
 public class MetaObjectAddDTO {
 
+    /**
+     * 元对象渲染配置
+     */
+    @Valid
+    private MetaObjectRenderDTO config;
 
+    /**
+     * 元字段信息
+     */
+    @Valid
+    private List<MetaFieldDTO> fields;
 
 }

@@ -1,5 +1,6 @@
 package cn.zeroable.cat4j.base.service.metaobject;
 
+import cn.zeroable.cat4j.base.dto.MetaObjectRenderDTO;
 import cn.zeroable.cat4j.base.vo.MetaObjectRenderVO;
 import cn.zeroable.cat4j.core.factory.Type;
 

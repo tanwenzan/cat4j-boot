@@ -1,6 +1,7 @@
 package cn.zeroable.cat4j.base.service.metaobject;
 
 import cn.hutool.json.JSONUtil;
+import cn.zeroable.cat4j.base.dto.MetaObjectRenderDTO;
 import cn.zeroable.cat4j.base.vo.MetaObjectRenderVO;
 import cn.zeroable.cat4j.core.util.ValidateUtil;
 import jakarta.validation.Valid;

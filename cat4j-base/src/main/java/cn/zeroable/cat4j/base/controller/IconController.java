@@ -26,7 +26,7 @@ import java.util.Arrays;
  * @since 0.0.1
  */
 @RestController
-@RequestMapping("/icon")
+@RequestMapping("/common/icon")
 @AllArgsConstructor
 @Slf4j
 public class IconController {

@@ -7,9 +7,9 @@ spring:
   datasource:
     name: cat4j-base
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ENC(ni2p4AWoXBxxw6ZdagKFnFurkNIwbNAdroOiVb/Yma92uwrpr4zfbQFDCFXE2chP5GNOc7oLN1VXGKVOT1QEY84cVw9PulvomntjBqF3err3yn+hjUiYSdge01hxQ0g0Zd3mpukzedM2faAO4wQmxle1Ir7ltifDDhlA67a23SZqtUp8oBwewjVGccaiernGYqiGFoBljypINiEbCcrXMQ==)
-    username: ENC(JVNZz2OxsxfvsQPRMJMgpcyGhFfN8VmEk05tviV33EE2mtMQ57BWmxiPtluhNkLX)
-    password: ENC(CYo8RiOR0+NszQJtVLFyR0dqoI9fVyGjEHIlLy3VGM8X98ahVHj5l1WhbubNf9D0)
+    url: ENC(VfMirqYxetaE3aGoDvw+CJIuJHUK/WhByPgId3i3XUwiWuOYPTv4+ZprA0oikaUnO42eO79kzQzvVQpgs3E+G0Rb4HosKWNkGnlecKUfnem0db1knnSgI1vZOVM2BpOsiIoSmcdux4c4PF+M0TfIS/Gsy/tePo5FedZWZK/YJspaG9ZFYbGsFmdq4XGVke9M8tLk6CiUjPlzpzOup7snAQ==)
+    username: ENC(w5awUQswXj8iYq2cIgNrOrGs6SgYjKSHVIeL5GTLOF3oouyVTOXqcpJMaY5TuuK1)
+    password: ENC(1HAxU2Uk0Pi0KzJTYG09t95LwoHqiHjvcP/Y+XD1eA0zn2DpSrb4avNcO5TqsPYq)
 #    url: ENC(N56kOIPLh4b83vHP3OaNNJ0MOza88UTaHWgjgo/JYVlHQhpUKypQZmA/axBFkgr7K4zKjhaCpZFiLlWnoQCYLFuFh9uCO/WZZTlHYn8boIOBPougbwDe9rk6gsgmXUmHWkr8dWL73yDAEXX3k/HPp46T2007pZC3EbUJHSiehKXxOAfmEwuoFG4GaFZd6ySKiz3tX9ua/RzH4e6SQ5SSWg==)
 #    username: ENC(J132ZzOCyDODOtumOyJIHBScakzXwhV8ENt74gvYu1rnmR6SpKCRvps0czEwPkWR)
 #    password: ENC(++FZHFS1Ad6tJ/VfJ6srAfq8jj7biiuoOGW6M/fJKFH8Fupaj0ZWI7PAln/jKuCb)
@@ -63,7 +63,7 @@ spring:
         deny:
   data:
     redis:
-      host: ENC(lEiftW8SueOA9rXUyLHS9kWuVbkKcIib9tZbtYcWIavxfp4whAXHZWjoe1lZdy16)
+      host: ENC(pAAguLM3Z7C40wuFR4H5xUy7TJylXGXtY2I7Ba2mp2DPmr+I0BLMQznqO5+LTIc+)
       port: 6379
       connect-timeout: 10000
 logging:

@@ -30,8 +30,8 @@ public class AuthController {
         return authService.login(loginDTO);
     }
 
-    @PostMapping("loginOut")
-    public ApiResult<String> loginOut() {
+    @PostMapping("logOut")
+    public ApiResult<String> logOut() {
         return authService.logOut();
     }
 }

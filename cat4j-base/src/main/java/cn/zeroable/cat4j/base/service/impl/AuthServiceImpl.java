@@ -5,6 +5,7 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.zeroable.cat4j.base.dto.LoginDTO;
 import cn.zeroable.cat4j.base.entity.UserEntity;
+import cn.zeroable.cat4j.base.enums.LoginDeviceType;
 import cn.zeroable.cat4j.base.service.AuthService;
 import cn.zeroable.cat4j.base.service.RoleMenuService;
 import cn.zeroable.cat4j.base.service.UserRoleService;
@@ -54,9 +55,15 @@ public class AuthServiceImpl implements AuthService {
                 List<String> permissionList = roleMenuService.getPermissionList(userId);
                 List<String> roles = userRoleService.getRoleCodeByUserId(userId);
                 LoginResult result = new LoginResult();
+                //填充登录成功后的返回值
+                String userIdStr = String.valueOf(userId);
                 BeanUtils.copyProperties(tokenInfo, result);
                 result.setPermissions(permissionList);
                 result.setRoles(roles);
+                result.setLoginId(userIdStr);
+                result.setUserId(userIdStr);
+                result.setUserName(loginDTO.getUserName());
+                result.setLoginDevice(LoginDeviceType.valueOf(loginDTO.getLoginType()).getName());
                 return ApiResult.ok(result);
             } catch (Exception e) {
                 log.error(e.getMessage(), e);

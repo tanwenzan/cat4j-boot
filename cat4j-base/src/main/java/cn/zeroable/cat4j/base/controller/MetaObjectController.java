@@ -40,7 +40,7 @@ public class MetaObjectController {
     private DataSourceManager dataSourceManager;
 
     /**
-     * 通过ID查询单条数据
+     * 通过ID查询单条数据明细信息
      *
      * @param id 主键
      * @return ApiResult<MetaObjectEntity>  实例对象
@@ -78,13 +78,14 @@ public class MetaObjectController {
      * @date 2024/4/2 10:14
      */
     @GetMapping("table-list")
-    public ApiResult<IPage<TableInfoVO>> tableList(@RequestParam(value = "tableName", name = "tableName", required = false) String tableName, Query query) {
+    public ApiResult<IPage<TableInfoVO>> tableList(@RequestParam(value = "tableName", name = "tableName",
+            required = false) String tableName, Query query) {
         IPage<TableInfoVO> tableList = metaObjectService.tableList(tableName, query);
         return ApiResult.ok(tableList);
     }
 
     /**
-     * 新增数据
+     * 新增元对象
      *
      * @param metaObject 实例对象
      * @return ApiResult<MetaObjectEntity> 实例对象
@@ -98,7 +99,7 @@ public class MetaObjectController {
     }
 
     /**
-     * 更新数据
+     * 更新元对象数据
      *
      * @param metaObject 实例对象
      * @return ApiResult<MetaObjectEntity> 实例对象
