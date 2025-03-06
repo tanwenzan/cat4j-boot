@@ -1,6 +1,5 @@
 package cn.zeroable.cat4j.base.service;
 
-import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.zeroable.cat4j.base.dto.LoginDTO;
 import cn.zeroable.cat4j.base.vo.LoginResult;
 import cn.zeroable.cat4j.core.ApiResult;
